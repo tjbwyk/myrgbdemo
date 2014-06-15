@@ -6,9 +6,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\..\nestk\samples\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{C882DFC9-1D24-48C6-A52D-C3B1FEBD4259}</UniqueIdentifier>
     </Filter>

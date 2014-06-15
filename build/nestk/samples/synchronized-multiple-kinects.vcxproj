@@ -49,35 +49,40 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" />
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">synchronized-multiple-kinects.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">synchronized-multiple-kinects</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">synchronized-multiple-kinects.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">synchronized-multiple-kinects</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">synchronized-multiple-kinects.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">synchronized-multiple-kinects</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">synchronized-multiple-kinects.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">synchronized-multiple-kinects</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">synchronized-multiple-kinects.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">synchronized-multiple-kinects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">synchronized-multiple-kinects.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">synchronized-multiple-kinects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">synchronized-multiple-kinects.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">synchronized-multiple-kinects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">synchronized-multiple-kinects.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">synchronized-multiple-kinects</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -115,7 +120,8 @@
       <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/Debug/synchronized-multiple-kinects.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/Debug/synchronized-multiple-kinects.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -133,7 +139,8 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -157,7 +164,8 @@
       <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/Release/synchronized-multiple-kinects.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/Release/synchronized-multiple-kinects.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -175,7 +183,8 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -199,7 +208,8 @@
       <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/MinSizeRel/synchronized-multiple-kinects.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/MinSizeRel/synchronized-multiple-kinects.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -241,66 +251,15 @@
       <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/RelWithDebInfo/synchronized-multiple-kinects.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/RelWithDebInfo/synchronized-multiple-kinects.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="..\..\..\nestk\samples\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/nestk/samples/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\samples\CMakeFiles\generate.stamp</Outputs>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\nestk\samples\synchronized_multiple_kinects.cpp"  />
+    <ClCompile Include="..\..\..\nestk\samples\synchronized_multiple_kinects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/ZERO_CHECK.vcxproj">

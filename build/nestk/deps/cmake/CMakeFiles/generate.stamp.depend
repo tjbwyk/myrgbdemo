@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+E:/Documents/workspace/myrgbdemo/nestk/deps/cmake/CMakeLists.txt
+E:/Documents/workspace/myrgbdemo/nestk/deps/cmake/UseNestkDeps.cmake.in
+E:/Documents/workspace/myrgbdemo/nestk/deps/cmake/UseNestkDepsROS.cmake.in
+E:/Documents/workspace/myrgbdemo/nestk/deps/cmake/NestkDepsConfig.cmake.in

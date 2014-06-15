@@ -1,0 +1,62 @@
+# CMake generation dependency list for this directory.
+E:/Documents/workspace/myrgbdemo/CMakeLists.txt
+E:/Documents/workspace/myrgbdemo/build/CMakeFiles/2.8.12.2/CMakeSystem.cmake
+E:/Documents/workspace/myrgbdemo/build/CMakeFiles/2.8.12.2/CMakeCCompiler.cmake
+E:/Documents/workspace/myrgbdemo/build/CMakeFiles/2.8.12.2/CMakeCXXCompiler.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeGenericSystem.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/WindowsPaths.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeCInformation.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-MSVC-C.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-MSVC.cmake
+E:/Documents/workspace/myrgbdemo/build/CMakeFiles/2.8.12.2/CMakeRCCompiler.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeRCInformation.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeCXXInformation.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-MSVC-CXX.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-MSVC.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CPack.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CPackComponent.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Templates/CPackConfig.cmake.in
+D:/Development/CMake 2.8/share/cmake-2.8/Templates/CPackConfig.cmake.in
+E:/Documents/workspace/myrgbdemo/build/nestk/UseEmbeddedNestk.cmake
+E:/Documents/workspace/myrgbdemo/nestk/cmake/find_nestk_deps.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindOpenGL.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+D:/Development/opencv/2.3.1/build/vs10/OpenCVConfig-version.cmake
+D:/Development/opencv/2.3.1/build/vs10/OpenCVConfig.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindQt4.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CheckCXXSymbolExists.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CheckSymbolExists.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/MacroAddFileDependencies.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Qt4ConfigDependentSettings.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/Qt4Macros.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/UseQt4.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindGLUT.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+E:/Documents/workspace/myrgbdemo/nestk/cmake/FindOpenNI.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPkgConfig.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+E:/Documents/workspace/myrgbdemo/build/nestk/deps/cmake/UseNestkDeps.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindOpenGL.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindGLUT.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake

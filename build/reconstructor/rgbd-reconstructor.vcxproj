@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{E06747EA-AF60-4C86-846A-26B85F315786}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>rgbd-reconstructor</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rgbd-reconstructor.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rgbd-reconstructor</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rgbd-reconstructor.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rgbd-reconstructor</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">rgbd-reconstructor.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">rgbd-reconstructor</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\bin\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">rgbd-reconstructor.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">rgbd-reconstructor</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\Debug\nestk.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtOpenGLd4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtSvgd4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtGuid4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtXmld4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtNetworkd4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtCored4.lib;..\lib\Debug\glew.lib;..\..\nestk\deps\win32\glut-msvc\glut32.lib;glu32.lib;opengl32.lib;opencv_gpu231d.lib;opencv_contrib231d.lib;opencv_legacy231d.lib;opencv_objdetect231d.lib;opencv_calib3d231d.lib;opencv_features2d231d.lib;opencv_video231d.lib;opencv_highgui231d.lib;opencv_ml231d.lib;opencv_imgproc231d.lib;opencv_flann231d.lib;opencv_core231d.lib;C:\Program Files (x86)\OpenNI\Lib\openNI.lib;C:\Program Files (x86)\PrimeSense\NITE\Lib\XnVNITE_1_5_2.lib;winmm.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Development/opencv/2.3.1/build/vs10/lib;D:/Development/opencv/2.3.1/build/vs10/lib/$(Configuration);;E:/Documents/workspace/myrgbdemo/build/lib;E:/Documents/workspace/myrgbdemo/build/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/Debug/rgbd-reconstructor.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/Debug/rgbd-reconstructor.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\Release\nestk.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtOpenGL4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtSvg4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtGui4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtXml4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtNetwork4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtCore4.lib;..\lib\Release\glew.lib;..\..\nestk\deps\win32\glut-msvc\glut32.lib;glu32.lib;opengl32.lib;opencv_gpu231.lib;opencv_contrib231.lib;opencv_legacy231.lib;opencv_objdetect231.lib;opencv_calib3d231.lib;opencv_features2d231.lib;opencv_video231.lib;opencv_highgui231.lib;opencv_ml231.lib;opencv_imgproc231.lib;opencv_flann231.lib;opencv_core231.lib;C:\Program Files (x86)\OpenNI\Lib\openNI.lib;C:\Program Files (x86)\PrimeSense\NITE\Lib\XnVNITE_1_5_2.lib;winmm.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Development/opencv/2.3.1/build/vs10/lib;D:/Development/opencv/2.3.1/build/vs10/lib/$(Configuration);;E:/Documents/workspace/myrgbdemo/build/lib;E:/Documents/workspace/myrgbdemo/build/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/Release/rgbd-reconstructor.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/Release/rgbd-reconstructor.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\MinSizeRel\nestk.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtOpenGL4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtSvg4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtGui4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtXml4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtNetwork4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtCore4.lib;..\lib\MinSizeRel\glew.lib;..\..\nestk\deps\win32\glut-msvc\glut32.lib;glu32.lib;opengl32.lib;opencv_gpu231.lib;opencv_contrib231.lib;opencv_legacy231.lib;opencv_objdetect231.lib;opencv_calib3d231.lib;opencv_features2d231.lib;opencv_video231.lib;opencv_highgui231.lib;opencv_ml231.lib;opencv_imgproc231.lib;opencv_flann231.lib;opencv_core231.lib;C:\Program Files (x86)\OpenNI\Lib\openNI.lib;C:\Program Files (x86)\PrimeSense\NITE\Lib\XnVNITE_1_5_2.lib;winmm.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Development/opencv/2.3.1/build/vs10/lib;D:/Development/opencv/2.3.1/build/vs10/lib/$(Configuration);;E:/Documents/workspace/myrgbdemo/build/lib;E:/Documents/workspace/myrgbdemo/build/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/MinSizeRel/rgbd-reconstructor.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/MinSizeRel/rgbd-reconstructor.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;E:\Documents\workspace\myrgbdemo\build;E:\Documents\workspace\myrgbdemo;E:\Documents\workspace\myrgbdemo\build\reconstructor;E:\Documents\workspace\myrgbdemo\reconstructor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;..\lib\RelWithDebInfo\nestk.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtOpenGL4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtSvg4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtGui4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtXml4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtNetwork4.lib;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\lib\QtCore4.lib;..\lib\RelWithDebInfo\glew.lib;..\..\nestk\deps\win32\glut-msvc\glut32.lib;glu32.lib;opengl32.lib;opencv_gpu231.lib;opencv_contrib231.lib;opencv_legacy231.lib;opencv_objdetect231.lib;opencv_calib3d231.lib;opencv_features2d231.lib;opencv_video231.lib;opencv_highgui231.lib;opencv_ml231.lib;opencv_imgproc231.lib;opencv_flann231.lib;opencv_core231.lib;C:\Program Files (x86)\OpenNI\Lib\openNI.lib;C:\Program Files (x86)\PrimeSense\NITE\Lib\XnVNITE_1_5_2.lib;winmm.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Development/opencv/2.3.1/build/vs10/lib;D:/Development/opencv/2.3.1/build/vs10/lib/$(Configuration);;E:/Documents/workspace/myrgbdemo/build/lib;E:/Documents/workspace/myrgbdemo/build/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>E:/Documents/workspace/myrgbdemo/build/bin/RelWithDebInfo/rgbd-reconstructor.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Documents/workspace/myrgbdemo/build/bin/RelWithDebInfo/rgbd-reconstructor.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\reconstructor\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\reconstructor\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\CMakeFiles\generate.stamp</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CMakeFiles\490e0be0e9962bd78e0016b63759c526\moc_GuiController.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating moc_GuiController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_GuiController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_GuiController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\GuiController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_GuiController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating moc_GuiController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_GuiController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_GuiController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\GuiController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_GuiController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating moc_GuiController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_GuiController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_GuiController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\GuiController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_GuiController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating moc_GuiController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_GuiController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_GuiController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\GuiController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_GuiController.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CMakeFiles\490e0be0e9962bd78e0016b63759c526\moc_ModelAcquisitionController.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating moc_ModelAcquisitionController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating moc_ModelAcquisitionController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating moc_ModelAcquisitionController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionController.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating moc_ModelAcquisitionController.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionController.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionController.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionController.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionController.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CMakeFiles\490e0be0e9962bd78e0016b63759c526\moc_FiltersWindow.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating moc_FiltersWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_FiltersWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_FiltersWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_FiltersWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating moc_FiltersWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_FiltersWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_FiltersWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_FiltersWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating moc_FiltersWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_FiltersWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_FiltersWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_FiltersWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating moc_FiltersWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_FiltersWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_FiltersWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_FiltersWindow.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CMakeFiles\490e0be0e9962bd78e0016b63759c526\moc_RawImagesWindow.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating moc_RawImagesWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_RawImagesWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_RawImagesWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_RawImagesWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating moc_RawImagesWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_RawImagesWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_RawImagesWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_RawImagesWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating moc_RawImagesWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_RawImagesWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_RawImagesWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_RawImagesWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating moc_RawImagesWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_RawImagesWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_RawImagesWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_RawImagesWindow.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\CMakeFiles\490e0be0e9962bd78e0016b63759c526\moc_ModelAcquisitionWindow.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating moc_ModelAcquisitionWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating moc_ModelAcquisitionWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating moc_ModelAcquisitionWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionWindow.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating moc_ModelAcquisitionWindow.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\reconstructor
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/reconstructor/moc_ModelAcquisitionWindow.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/490e0be0e9962bd78e0016b63759c526/moc_ModelAcquisitionWindow.cxx.rule;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\moc_ModelAcquisitionWindow.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\reconstructor\RawImagesWindow.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating ui_RawImagesWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_RawImagesWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_RawImagesWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating ui_RawImagesWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_RawImagesWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_RawImagesWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating ui_RawImagesWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_RawImagesWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_RawImagesWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating ui_RawImagesWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_RawImagesWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/RawImagesWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\RawImagesWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_RawImagesWindow.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\reconstructor\FiltersWindow.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating ui_FiltersWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_FiltersWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_FiltersWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating ui_FiltersWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_FiltersWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_FiltersWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating ui_FiltersWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_FiltersWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_FiltersWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating ui_FiltersWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_FiltersWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/FiltersWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\FiltersWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_FiltersWindow.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\reconstructor\ModelAcquisitionWindow.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating ui_ModelAcquisitionWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_ModelAcquisitionWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_ModelAcquisitionWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating ui_ModelAcquisitionWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_ModelAcquisitionWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_ModelAcquisitionWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating ui_ModelAcquisitionWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_ModelAcquisitionWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_ModelAcquisitionWindow.h</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating ui_ModelAcquisitionWindow.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\uic.exe -o E:/Documents/workspace/myrgbdemo/build/reconstructor/ui_ModelAcquisitionWindow.h E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/reconstructor/ModelAcquisitionWindow.ui;E:\Documents\workspace\myrgbdemo\reconstructor\ModelAcquisitionWindow.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\reconstructor\ui_ModelAcquisitionWindow.h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ui_RawImagesWindow.h" />
+    <ClInclude Include="ui_FiltersWindow.h" />
+    <ClInclude Include="ui_ModelAcquisitionWindow.h" />
+    <ClInclude Include="..\..\reconstructor\RawImagesWindow.h" />
+    <ClInclude Include="..\..\reconstructor\GuiController.h" />
+    <ClInclude Include="..\..\reconstructor\ModelAcquisitionController.h" />
+    <ClInclude Include="..\..\reconstructor\FiltersWindow.h" />
+    <ClInclude Include="..\..\reconstructor\ModelAcquisitionWindow.h" />
+    <ClCompile Include="moc_GuiController.cxx"  />
+    <ClCompile Include="moc_ModelAcquisitionController.cxx"  />
+    <ClCompile Include="moc_FiltersWindow.cxx"  />
+    <ClCompile Include="moc_RawImagesWindow.cxx"  />
+    <ClCompile Include="moc_ModelAcquisitionWindow.cxx"  />
+    <ClCompile Include="..\..\reconstructor\reconstructor.cpp"  />
+    <ClCompile Include="..\..\reconstructor\RawImagesWindow.cpp"  />
+    <ClCompile Include="..\..\reconstructor\GuiController.cpp"  />
+    <ClCompile Include="..\..\reconstructor\ModelAcquisitionController.cpp"  />
+    <ClCompile Include="..\..\reconstructor\FiltersWindow.cpp"  />
+    <ClCompile Include="..\..\reconstructor\ModelAcquisitionWindow.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/ZERO_CHECK.vcxproj">
+      <Project>07ABEF11-78B8-4C50-9870-1A56ECA8D7BF</Project>
+    </ProjectReference>
+    <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/nestk/deps/glew/glew.vcxproj">
+      <Project>504CA496-1DA4-40EF-8CF0-BD7CDC650612</Project>
+    </ProjectReference>
+    <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/nestk/ntk/nestk.vcxproj">
+      <Project>E78C271F-D5B2-479E-9B92-0DC028CFA7B1</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

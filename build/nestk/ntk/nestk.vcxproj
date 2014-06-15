@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{E78C271F-D5B2-479E-9B92-0DC028CFA7B1}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>nestk</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\lib\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nestk.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">nestk</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\lib\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nestk.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">nestk</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\lib\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nestk.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">nestk</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\lib\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nestk.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">nestk</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_DEBUG;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_OPENCV_GREATER_THAN_2_2;HAVE_OPENCV_GREATER_THAN_2_3_0;NESTK_USE_EIGEN;NESTK_USE_QT;QT_DLL;QT_OPENGL_LIB;QT_SVG_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;NESTK_USE_GLEW;NESTK_USE_OPENNI;QT_NO_DEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Documents\workspace\myrgbdemo\build\nestk\deps;E:\Documents\workspace\myrgbdemo\nestk\deps;D:\Development\opencv\2.3.1\build\vs10;D:\Development\opencv\2.3.1\include;D:\Development\opencv\2.3.1\include\opencv;D:\Development\opencv\2.3.1\modules\gpu\include;D:\Development\opencv\2.3.1\modules\contrib\include;D:\Development\opencv\2.3.1\modules\legacy\include;D:\Development\opencv\2.3.1\modules\objdetect\include;D:\Development\opencv\2.3.1\modules\calib3d\include;D:\Development\opencv\2.3.1\modules\features2d\include;D:\Development\opencv\2.3.1\modules\video\include;D:\Development\opencv\2.3.1\modules\highgui\include;D:\Development\opencv\2.3.1\modules\ml\include;D:\Development\opencv\2.3.1\modules\imgproc\include;D:\Development\opencv\2.3.1\modules\flann\include;D:\Development\opencv\2.3.1\modules\core\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtOpenGL;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtSvg;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtGui;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtXml;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtNetwork;D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\include\QtCore;C:\Program Files (x86)\OpenNI\Include;C:\Program Files (x86)\PrimeSense\NITE\Include;E:\Documents\workspace\myrgbdemo\nestk\deps\include;E:\Documents\workspace\myrgbdemo\nestk\deps\eigen;E:\Documents\workspace\myrgbdemo\nestk\deps\win32\glut-msvc;E:\Documents\workspace\myrgbdemo\nestk\deps\glew\include;E:\Documents\workspace\myrgbdemo\nestk;E:\Documents\workspace\myrgbdemo\build\nestk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\nestk\ntk\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"D:\Development\CMake 2.8\bin\cmake.exe" -HE:/Documents/workspace/myrgbdemo -BE:/Documents/workspace/myrgbdemo/build --check-stamp-file E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/nestk/ntk/CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;E:\Documents\workspace\myrgbdemo\nestk\ntk\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\CMakeFiles\generate.stamp</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\b22b1af36e232ef69c54815b5563f43f\moc_image_widget.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating gui/moc_image_widget.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/gui/moc_image_widget.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/b22b1af36e232ef69c54815b5563f43f/moc_image_widget.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\gui\image_widget.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui\moc_image_widget.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating gui/moc_image_widget.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/gui/moc_image_widget.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/b22b1af36e232ef69c54815b5563f43f/moc_image_widget.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\gui\image_widget.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui\moc_image_widget.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating gui/moc_image_widget.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/gui/moc_image_widget.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/b22b1af36e232ef69c54815b5563f43f/moc_image_widget.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\gui\image_widget.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui\moc_image_widget.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating gui/moc_image_widget.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/gui/moc_image_widget.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/b22b1af36e232ef69c54815b5563f43f/moc_image_widget.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\gui\image_widget.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\gui\moc_image_widget.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\7f659e17f1782672b7cda31d6a186cb0\moc_mesh_viewer.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating mesh/moc_mesh_viewer.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/mesh/moc_mesh_viewer.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/7f659e17f1782672b7cda31d6a186cb0/moc_mesh_viewer.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\mesh\mesh_viewer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh\moc_mesh_viewer.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating mesh/moc_mesh_viewer.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/mesh/moc_mesh_viewer.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/7f659e17f1782672b7cda31d6a186cb0/moc_mesh_viewer.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\mesh\mesh_viewer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh\moc_mesh_viewer.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating mesh/moc_mesh_viewer.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/mesh/moc_mesh_viewer.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/7f659e17f1782672b7cda31d6a186cb0/moc_mesh_viewer.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\mesh\mesh_viewer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh\moc_mesh_viewer.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating mesh/moc_mesh_viewer.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/mesh/moc_mesh_viewer.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/7f659e17f1782672b7cda31d6a186cb0/moc_mesh_viewer.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\mesh\mesh_viewer.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\mesh\moc_mesh_viewer.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\f671e234a8b980cb32cfab084d040695\moc_progressive.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating utils/moc_progressive.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/utils/moc_progressive.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f671e234a8b980cb32cfab084d040695/moc_progressive.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\utils\progressive.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils\moc_progressive.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating utils/moc_progressive.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/utils/moc_progressive.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f671e234a8b980cb32cfab084d040695/moc_progressive.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\utils\progressive.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils\moc_progressive.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating utils/moc_progressive.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/utils/moc_progressive.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f671e234a8b980cb32cfab084d040695/moc_progressive.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\utils\progressive.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils\moc_progressive.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating utils/moc_progressive.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/utils/moc_progressive.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f671e234a8b980cb32cfab084d040695/moc_progressive.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\utils\progressive.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\utils\moc_progressive.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\CMakeFiles\f3f05a22c856ec0990993cfe7b1c4447\moc_event.cxx.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating thread/moc_event.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/thread/moc_event.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f3f05a22c856ec0990993cfe7b1c4447/moc_event.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\thread\event.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread\moc_event.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generating thread/moc_event.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/thread/moc_event.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f3f05a22c856ec0990993cfe7b1c4447/moc_event.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\thread\event.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread\moc_event.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Generating thread/moc_event.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/thread/moc_event.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f3f05a22c856ec0990993cfe7b1c4447/moc_event.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\thread\event.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread\moc_event.cxx</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Generating thread/moc_event.cxx</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+D:\Development\Qt\qt-everywhere-opensource-src-4.8.6\bin\moc.exe @E:/Documents/workspace/myrgbdemo/build/nestk/ntk/thread/moc_event.cxx_parameters
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/Documents/workspace/myrgbdemo/build/CMakeFiles/f3f05a22c856ec0990993cfe7b1c4447/moc_event.cxx.rule;E:\Documents\workspace\myrgbdemo\nestk\ntk\thread\event.h;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Documents\workspace\myrgbdemo\build\nestk\ntk\thread\moc_event.cxx</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\nestk\ntk\core.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\ntk.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\aruco.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\boarddetector.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\board.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\cameraparameters.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\cvdrawingutils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\markerdetector.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\aruco\marker.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\calibration.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\file_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\multiple_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\opencv_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\rgbd_frame_recorder.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\rgbd_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\rgbd_image.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\rgbd_processor.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\projector\calibration.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\affine_transform.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\eigen_utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator_from_rgb_features.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator_from_markers.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\plane.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\polygon.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\pose_3d.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator_from_image.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator_markers.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\geometry\similarity_transform.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\gui\image_widget.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\gui\screen_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\bilateral_filter.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\color_model.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\feature.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\sift.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\sift_gpu.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\SiftGPU.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\FrameBufferObject.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\GlobalUtil.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\GLTexImage.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\LiteWindow.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\ProgramGLSL.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\ProgramGPU.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\PyramidGL.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\ShaderMan.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\image\siftgpu\SiftPyramid.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\ply.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\mesh.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\mesh_generator.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\mesh_renderer.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\mesh_viewer.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\plane_remover.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\rgbd_modeler.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\mesh\surfels_rgbd_modeler.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\numeric\cost_function.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\numeric\levenberg_marquart_minimizer.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\numeric\utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\numeric\differential_evolution_solver.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\numeric\differential_evolution_minimizer.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\distributions.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\estimation.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\histogram.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\hypothesis_testing.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\hypothesis_testing.hxx" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\moments.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\stats\moments.hxx" />
+    <ClInclude Include="..\..\..\nestk\ntk\thread\event.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\thread\utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\arg.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\common.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\debug.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\opencv_utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\progressive.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\qt_utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\stl.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\serializable.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\time.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\xml_parser.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\utils\xml_serializable.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\openni_grabber.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\camera\openni_grabber_internals.hxx" />
+    <ClInclude Include="..\..\..\nestk\ntk\gesture\body_event.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\gesture\ni_utils.h" />
+    <ClInclude Include="..\..\..\nestk\ntk\gesture\skeleton.h" />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\board.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\boarddetector.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\cameraparameters.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\cvdrawingutils.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\marker.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\aruco\markerdetector.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\calibration.cpp" >
+      <ObjectFileName>$(IntDir)/camera/calibration.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nestk\ntk\camera\file_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\multiple_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\opencv_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\rgbd_frame_recorder.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\rgbd_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\rgbd_image.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\rgbd_processor.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\projector\calibration.cpp" >
+      <ObjectFileName>$(IntDir)/projector/calibration.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\affine_transform.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator_from_rgb_features.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\incremental_pose_estimator_from_markers.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\plane.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\polygon.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\pose_3d.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator_from_image.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\relative_pose_estimator_markers.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\geometry\similarity_transform.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\gui\image_widget.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\gui\screen_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\bilateral_filter.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\color_model.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\feature.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\sift.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\sift_gpu.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\SiftGPU.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\FrameBufferObject.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\GlobalUtil.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\GLTexImage.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\ProgramGLSL.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\ProgramGPU.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\PyramidGL.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\ShaderMan.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\image\siftgpu\SiftPyramid.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\ply.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\mesh.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\mesh_generator.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\mesh_renderer.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\mesh_viewer.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\plane_remover.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\rgbd_modeler.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\mesh\surfels_rgbd_modeler.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\numeric\cost_function.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\numeric\levenberg_marquart_minimizer.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\numeric\utils.cpp" >
+      <ObjectFileName>$(IntDir)/numeric/utils.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nestk\ntk\numeric\differential_evolution_solver.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\numeric\differential_evolution_minimizer.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\stats\distributions.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\stats\estimation.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\stats\histogram.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\stats\hypothesis_testing.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\stats\moments.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\thread\event.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\thread\utils.cpp" >
+      <ObjectFileName>$(IntDir)/thread/utils.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\nestk\ntk\utils\arg.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\debug.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\opencv_utils.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\progressive.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\qt_utils.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\xml_parser.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\utils\xml_serializable.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\camera\openni_grabber.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\gesture\body_event.cpp"  />
+    <ClCompile Include="..\..\..\nestk\ntk\gesture\skeleton.cpp"  />
+    <ClCompile Include="gui\moc_image_widget.cxx"  />
+    <ClCompile Include="mesh\moc_mesh_viewer.cxx"  />
+    <ClCompile Include="utils\moc_progressive.cxx"  />
+    <ClCompile Include="thread\moc_event.cxx"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/ZERO_CHECK.vcxproj">
+      <Project>07ABEF11-78B8-4C50-9870-1A56ECA8D7BF</Project>
+    </ProjectReference>
+    <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/nestk/deps/glew/glew.vcxproj">
+      <Project>504CA496-1DA4-40EF-8CF0-BD7CDC650612</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

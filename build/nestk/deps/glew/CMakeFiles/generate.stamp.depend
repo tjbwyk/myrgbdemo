@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+E:/Documents/workspace/myrgbdemo/nestk/deps/glew/CMakeLists.txt
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindOpenGL.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+D:/Development/CMake 2.8/share/cmake-2.8/Modules/CMakeParseArguments.cmake

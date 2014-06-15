@@ -1,0 +1,54 @@
+-IE:/Documents/workspace/myrgbdemo/build/nestk/deps
+-IE:/Documents/workspace/myrgbdemo/nestk/deps
+-ID:/Development/opencv/2.3.1/build/vs10
+-ID:/Development/opencv/2.3.1/include
+-ID:/Development/opencv/2.3.1/include/opencv
+-ID:/Development/opencv/2.3.1/modules/gpu/include
+-ID:/Development/opencv/2.3.1/modules/contrib/include
+-ID:/Development/opencv/2.3.1/modules/legacy/include
+-ID:/Development/opencv/2.3.1/modules/objdetect/include
+-ID:/Development/opencv/2.3.1/modules/calib3d/include
+-ID:/Development/opencv/2.3.1/modules/features2d/include
+-ID:/Development/opencv/2.3.1/modules/video/include
+-ID:/Development/opencv/2.3.1/modules/highgui/include
+-ID:/Development/opencv/2.3.1/modules/ml/include
+-ID:/Development/opencv/2.3.1/modules/imgproc/include
+-ID:/Development/opencv/2.3.1/modules/flann/include
+-ID:/Development/opencv/2.3.1/modules/core/include
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtOpenGL
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtSvg
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtGui
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtXml
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtNetwork
+-ID:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include/QtCore
+-IC:/Program Files (x86)/OpenNI/Include
+-IC:/Program Files (x86)/PrimeSense/NITE/Include
+-IC:/Program Files (x86)/OpenNI/Include
+-IC:/Program Files (x86)/PrimeSense/NITE/Include
+-IE:/Documents/workspace/myrgbdemo/nestk/deps/include
+-IE:/Documents/workspace/myrgbdemo/nestk/deps/eigen
+-IE:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc
+-IE:/Documents/workspace/myrgbdemo/nestk/deps/glew/include
+-IE:/Documents/workspace/myrgbdemo/nestk
+-IE:/Documents/workspace/myrgbdemo/build/nestk
+-IE:/Documents/workspace/myrgbdemo/build
+-IE:/Documents/workspace/myrgbdemo
+-DHAVE_OPENCV_GREATER_THAN_2_2
+-DHAVE_OPENCV_GREATER_THAN_2_3_0
+-DNESTK_USE_EIGEN
+-DNESTK_USE_QT
+-DQT_DLL
+-DQT_OPENGL_LIB
+-DQT_SVG_LIB
+-DQT_GUI_LIB
+-DQT_XML_LIB
+-DQT_NETWORK_LIB
+-DQT_CORE_LIB
+-DNESTK_USE_GLEW
+-DNESTK_USE_OPENNI
+-DNESTK_USE_GLEW
+-DWIN32
+-o
+E:/Documents/workspace/myrgbdemo/build/skeletor/moc_GuiController.cxx
+E:/Documents/workspace/myrgbdemo/skeletor/GuiController.h

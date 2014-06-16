@@ -94,13 +94,13 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{C882DFC9-1D24-48C6-A52D-C3B1FEBD4259}</UniqueIdentifier>
+      <UniqueIdentifier>{6786EBEA-5238-4C9B-8ADE-C85E07C57590}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{8011B497-241F-4623-B5CE-22E2997A5816}</UniqueIdentifier>
+      <UniqueIdentifier>{3A048D5D-7217-49A2-89FB-FAD6E179BCEA}</UniqueIdentifier>
     </Filter>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{8941C3AB-9047-4D6A-8914-4FB63A52ACBA}</UniqueIdentifier>
+      <UniqueIdentifier>{454EE698-4EDF-4B86-AF2E-E84E761AAB48}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

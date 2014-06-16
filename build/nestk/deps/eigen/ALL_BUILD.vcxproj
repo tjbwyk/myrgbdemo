@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{12109343-9E39-4274-83A2-16D3AD111722}</ProjectGUID>
+    <ProjectGUID>{97DB9028-B464-4A61-9FE2-582C4D10F89D}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>

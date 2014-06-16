@@ -20,6 +20,42 @@ BUILD_MACOSX_BUNDLE:BOOL=OFF
 //Build obsolete programs
 BUILD_OBSOLETE:BOOL=OFF
 
+//Boost date_time library (debug)
+Boost_DATE_TIME_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-gd-1_49.lib
+
+//Boost date_time library (release)
+Boost_DATE_TIME_LIBRARY_RELEASE:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-1_49.lib
+
+//Boost filesystem library (debug)
+Boost_FILESYSTEM_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-gd-1_49.lib
+
+//Boost filesystem library (release)
+Boost_FILESYSTEM_LIBRARY_RELEASE:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-1_49.lib
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/3rdParty/Boost/include
+
+//Boost iostreams library (debug)
+Boost_IOSTREAMS_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-gd-1_49.lib
+
+//Boost iostreams library (release)
+Boost_IOSTREAMS_LIBRARY_RELEASE:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-1_49.lib
+
+//Boost library directory
+Boost_LIBRARY_DIR:PATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib
+
+//Boost system library (debug)
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-gd-1_49.lib
+
+//Boost system library (release)
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-1_49.lib
+
+//Boost thread library (debug)
+Boost_THREAD_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-gd-1_49.lib
+
+//Boost thread library (release)
+Boost_THREAD_LIBRARY_RELEASE:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-1_49.lib
+
 //For backwards compatibility, what version of CMake commands and
 // syntax should this version of CMake try to support.
 CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
@@ -182,6 +218,9 @@ EIGEN_DEFAULT_TO_ROW_MAJOR:BOOL=OFF
 //Enable failtests.
 EIGEN_FAILTEST:BOOL=OFF
 
+//Path to a file.
+EIGEN_INCLUDE_DIRS:PATH=D:/Development/PCL 1.6.0/3rdParty/Eigen/include
+
 //The directory where we install the header files (optional)
 EIGEN_INCLUDE_INSTALL_DIR:PATH=
 
@@ -218,6 +257,21 @@ Eigen_BINARY_DIR:STATIC=E:/Documents/workspace/myrgbdemo/build/nestk/deps/eigen
 //Value Computed by CMake
 Eigen_SOURCE_DIR:STATIC=E:/Documents/workspace/myrgbdemo/nestk/deps/eigen
 
+//Path to a file.
+FLANN_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/3rdParty/FLANN/include
+
+//Path to a file.
+FLANN_INCLUDE_DIRS:PATH=D:/Development/PCL 1.6.0/3rdParty/FLANN/include
+
+//Set to OFF if you use shared flann library.
+FLANN_IS_STATIC:BOOL=ON
+
+//Path to a library.
+FLANN_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s.lib
+
+//Path to a library.
+FLANN_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s-gd.lib
+
 GLEW_INCLUDE_DIR:FILEPATH=E:/Documents/workspace/myrgbdemo/nestk/deps/glew/include
 
 GLEW_LIBRARIES:FILEPATH=glew
@@ -225,6 +279,9 @@ GLEW_LIBRARIES:FILEPATH=glew
 GLUT_INCLUDE_DIR:FILEPATH=E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc
 
 GLUT_glut_LIBRARY:FILEPATH=E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc/glut32.lib
+
+//Set this if you version of PCL is greater than 1.3
+HAVE_PCL_1_3:BOOL=ON
 
 //Single output directory for building all libraries.
 LIBRARY_OUTPUT_PATH:PATH=
@@ -278,7 +335,7 @@ NESTK_USE_GSL:BOOL=OFF
 NESTK_USE_OPENNI:BOOL=ON
 
 //Build PCL support.
-NESTK_USE_PCL:BOOL=OFF
+NESTK_USE_PCL:BOOL=ON
 
 //Build PMD/SDK supoprt.
 NESTK_USE_PMDSDK:BOOL=OFF
@@ -321,8 +378,161 @@ OpenCV_LIB_DIR_DBG:PATH=
 //Path where release OpenCV libraries are located
 OpenCV_LIB_DIR_OPT:PATH=
 
+//path to apps headers
+PCL_APPS_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_apps library
+PCL_APPS_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_apps_release.lib
+
+//path to pcl_apps library debug
+PCL_APPS_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_apps_debug.lib
+
+//path to common headers
+PCL_COMMON_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_common library
+PCL_COMMON_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_common_release.lib
+
+//path to pcl_common library debug
+PCL_COMMON_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_common_debug.lib
+
+//The directory containing a CMake configuration file for PCL.
+PCL_DIR:PATH=D:/Development/PCL 1.6.0/cmake
+
+//path to features headers
+PCL_FEATURES_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_features library
+PCL_FEATURES_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_features_release.lib
+
+//path to pcl_features library debug
+PCL_FEATURES_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_features_debug.lib
+
+//path to filters headers
+PCL_FILTERS_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_filters library
+PCL_FILTERS_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_filters_release.lib
+
+//path to pcl_filters library debug
+PCL_FILTERS_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_filters_debug.lib
+
+//path to geometry headers
+PCL_GEOMETRY_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to io headers
+PCL_IO_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_io library
+PCL_IO_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_io_release.lib
+
+//path to pcl_io library debug
+PCL_IO_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_io_debug.lib
+
+//path to kdtree headers
+PCL_KDTREE_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_kdtree library
+PCL_KDTREE_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_kdtree_release.lib
+
+//path to pcl_kdtree library debug
+PCL_KDTREE_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_kdtree_debug.lib
+
+//path to keypoints headers
+PCL_KEYPOINTS_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_keypoints library
+PCL_KEYPOINTS_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_keypoints_release.lib
+
+//path to pcl_keypoints library debug
+PCL_KEYPOINTS_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_keypoints_debug.lib
+
+//path to octree headers
+PCL_OCTREE_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_octree library
+PCL_OCTREE_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_octree_release.lib
+
+//path to pcl_octree library debug
+PCL_OCTREE_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_octree_debug.lib
+
+//path to registration headers
+PCL_REGISTRATION_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_registration library
+PCL_REGISTRATION_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_registration_release.lib
+
+//path to pcl_registration library debug
+PCL_REGISTRATION_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_registration_debug.lib
+
+//path to sample_consensus headers
+PCL_SAMPLE_CONSENSUS_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_sample_consensus library
+PCL_SAMPLE_CONSENSUS_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_release.lib
+
+//path to pcl_sample_consensus library debug
+PCL_SAMPLE_CONSENSUS_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_debug.lib
+
+//path to search headers
+PCL_SEARCH_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_search library
+PCL_SEARCH_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_search_release.lib
+
+//path to pcl_search library debug
+PCL_SEARCH_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_search_debug.lib
+
+//path to segmentation headers
+PCL_SEGMENTATION_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_segmentation library
+PCL_SEGMENTATION_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_segmentation_release.lib
+
+//path to pcl_segmentation library debug
+PCL_SEGMENTATION_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_segmentation_debug.lib
+
+//path to surface headers
+PCL_SURFACE_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_surface library
+PCL_SURFACE_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_surface_release.lib
+
+//path to pcl_surface library debug
+PCL_SURFACE_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_surface_debug.lib
+
+//path to tracking headers
+PCL_TRACKING_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_tracking library
+PCL_TRACKING_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_tracking_release.lib
+
+//path to pcl_tracking library debug
+PCL_TRACKING_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_tracking_debug.lib
+
+//path to visualization headers
+PCL_VISUALIZATION_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/include/pcl-1.6
+
+//path to pcl_visualization library
+PCL_VISUALIZATION_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_visualization_release.lib
+
+//path to pcl_visualization library debug
+PCL_VISUALIZATION_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/lib/pcl_visualization_debug.lib
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
+
+//Path to a file.
+QHULL_INCLUDE_DIR:PATH=D:/Development/PCL 1.6.0/3rdParty/Qhull/include/libqhull
+
+//Path to a file.
+QHULL_INCLUDE_DIRS:PATH=D:/Development/PCL 1.6.0/3rdParty/Qhull/include
+
+//Path to a library.
+QHULL_LIBRARY:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic.lib
+
+//Path to a library.
+QHULL_LIBRARY_DEBUG:FILEPATH=D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic_d.lib
 
 //Path to a library.
 QT_ARTHURPLUGIN_PLUGIN_DEBUG:FILEPATH=D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/plugins/designer/arthurplugind.dll
@@ -973,7 +1183,7 @@ glew_SOURCE_DIR:STATIC=E:/Documents/workspace/myrgbdemo/nestk/deps/glew
 nestk_BINARY_DIR:STATIC=E:/Documents/workspace/myrgbdemo/build/nestk
 
 //Dependencies for the target
-nestk_LIB_DEPENDS:STATIC=optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtOpenGL4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtOpenGLd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtSvg4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtSvgd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtGui4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtGuid4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtXml4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtXmld4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtNetwork4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtNetworkd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCore4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCored4.lib;general;glew;general;E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc/glut32.lib;general;glu32;general;opengl32;general;glu32;general;opengl32;debug;opencv_gpu231d;optimized;opencv_gpu231;debug;opencv_contrib231d;optimized;opencv_contrib231;debug;opencv_legacy231d;optimized;opencv_legacy231;debug;opencv_objdetect231d;optimized;opencv_objdetect231;debug;opencv_calib3d231d;optimized;opencv_calib3d231;debug;opencv_features2d231d;optimized;opencv_features2d231;debug;opencv_video231d;optimized;opencv_video231;debug;opencv_highgui231d;optimized;opencv_highgui231;debug;opencv_ml231d;optimized;opencv_ml231;debug;opencv_imgproc231d;optimized;opencv_imgproc231;debug;opencv_flann231d;optimized;opencv_flann231;debug;opencv_core231d;optimized;opencv_core231;general;C:/Program Files (x86)/OpenNI/Lib/openNI.lib;general;C:/Program Files (x86)/PrimeSense/NITE/Lib/XnVNITE_1_5_2.lib;general;C:/Program Files (x86)/PrimeSense/NITE/Lib/XnVNITE_1_5_2.lib;general;winmm;
+nestk_LIB_DEPENDS:STATIC=optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-gd-1_49.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtOpenGL4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtOpenGLd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtSvg4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtSvgd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtGui4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtGuid4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtXml4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtXmld4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtNetwork4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtNetworkd4.lib;optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCore4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCored4.lib;general;glew;general;E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc/glut32.lib;general;glu32;general;opengl32;general;glu32;general;opengl32;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_common_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_common_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_octree_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_octree_debug.lib;general;C:/Program Files (x86)/OpenNI/Lib/openNI.lib;general;vtkCommon;general;vtkRendering;general;vtkHybrid;optimized;D:/Development/PCL 1.6.0/lib/pcl_io_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_io_debug.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s.lib;debug;D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s-gd.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_kdtree_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_kdtree_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_search_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_search_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_filters_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_filters_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_segmentation_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_segmentation_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_visualization_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_visualization_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_features_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_features_debug.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic_d.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_surface_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_surface_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_registration_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_registration_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_keypoints_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_keypoints_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_tracking_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_tracking_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_apps_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_apps_debug.lib;debug;opencv_gpu231d;optimized;opencv_gpu231;debug;opencv_contrib231d;optimized;opencv_contrib231;debug;opencv_legacy231d;optimized;opencv_legacy231;debug;opencv_objdetect231d;optimized;opencv_objdetect231;debug;opencv_calib3d231d;optimized;opencv_calib3d231;debug;opencv_features2d231d;optimized;opencv_features2d231;debug;opencv_video231d;optimized;opencv_video231;debug;opencv_highgui231d;optimized;opencv_highgui231;debug;opencv_ml231d;optimized;opencv_ml231;debug;opencv_imgproc231d;optimized;opencv_imgproc231;debug;opencv_flann231d;optimized;opencv_flann231;debug;opencv_core231d;optimized;opencv_core231;general;C:/Program Files (x86)/OpenNI/Lib/openNI.lib;general;C:/Program Files (x86)/PrimeSense/NITE/Lib/XnVNITE_1_5_2.lib;general;winmm;
 
 //Value Computed by CMake
 nestk_SOURCE_DIR:STATIC=E:/Documents/workspace/myrgbdemo/nestk
@@ -990,7 +1200,31 @@ nestk_deps_SOURCE_DIR:STATIC=E:/Documents/workspace/myrgbdemo/nestk/deps
 ########################
 
 //Stored GUID
-ALL_BUILD_GUID_CMAKE:INTERNAL=12109343-9E39-4274-83A2-16D3AD111722
+ALL_BUILD_GUID_CMAKE:INTERNAL=97DB9028-B464-4A61-9FE2-582C4D10F89D
+//ADVANCED property for variable: Boost_DATE_TIME_LIBRARY_DEBUG
+Boost_DATE_TIME_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_DATE_TIME_LIBRARY_RELEASE
+Boost_DATE_TIME_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FILESYSTEM_LIBRARY_DEBUG
+Boost_FILESYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FILESYSTEM_LIBRARY_RELEASE
+Boost_FILESYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_IOSTREAMS_LIBRARY_DEBUG
+Boost_IOSTREAMS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_IOSTREAMS_LIBRARY_RELEASE
+Boost_IOSTREAMS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR
+Boost_LIBRARY_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_DEBUG
+Boost_THREAD_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_THREAD_LIBRARY_RELEASE
+Boost_THREAD_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_BUILD_TOOL
 CMAKE_BUILD_TOOL-ADVANCED:INTERNAL=1
 //What is the target build tool cmake is generating for.
@@ -1069,7 +1303,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=53
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=56
 //ADVANCED property for variable: CMAKE_RC_COMPILER
 CMAKE_RC_COMPILER-ADVANCED:INTERNAL=1
 CMAKE_RC_COMPILER_WORKS:INTERNAL=1
@@ -1112,14 +1346,66 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 COMPILER_SUPPORT_OPENMP:INTERNAL=1
 //ADVANCED property for variable: CPACK_SOURCE_ZIP
 CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
+//Details about finding Flann
+FIND_PACKAGE_MESSAGE_DETAILS_Flann:INTERNAL=[D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s.lib][D:/Development/PCL 1.6.0/3rdParty/FLANN/include][v()]
 //Details about finding GLUT
 FIND_PACKAGE_MESSAGE_DETAILS_GLUT:INTERNAL=[E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc/glut32.lib][E:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][v()]
 //Details about finding OpenNI
 FIND_PACKAGE_MESSAGE_DETAILS_OpenNI:INTERNAL=[C:/Program Files (x86)/OpenNI/Lib/openNI.lib][C:/Program Files (x86)/OpenNI/Include][v()]
+//Details about finding PCL
+FIND_PACKAGE_MESSAGE_DETAILS_PCL:INTERNAL=[optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_system-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_filesystem-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_thread-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_date_time-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-1_49.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Boost/lib/libboost_iostreams-vc100-mt-gd-1_49.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_common_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_common_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_octree_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_octree_debug.lib;C:/Program Files (x86)/OpenNI/Lib/openNI.lib;vtkCommon;vtkRendering;vtkHybrid;optimized;D:/Development/PCL 1.6.0/lib/pcl_io_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_io_debug.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s.lib;debug;D:/Development/PCL 1.6.0/3rdParty/FLANN/lib/flann_cpp_s-gd.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_kdtree_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_kdtree_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_search_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_search_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_filters_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_filters_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_segmentation_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_segmentation_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_visualization_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_visualization_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_features_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_features_debug.lib;optimized;D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic.lib;debug;D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic_d.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_surface_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_surface_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_registration_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_registration_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_keypoints_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_keypoints_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_tracking_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_tracking_debug.lib;optimized;D:/Development/PCL 1.6.0/lib/pcl_apps_release.lib;debug;D:/Development/PCL 1.6.0/lib/pcl_apps_debug.lib][D:/Development/PCL 1.6.0/include/pcl-1.6;D:/Development/PCL 1.6.0/3rdParty/Eigen/include;D:/Development/PCL 1.6.0/3rdParty/Boost/include;C:/Program Files (x86)/OpenNI/Include;C:/Program Files (x86)/PrimeSense/NITE/Include;D:/Development/PCL 1.6.0/3rdParty/VTK/include/vtk-5.8;D:/Development/PCL 1.6.0/3rdParty/FLANN/include;D:/Development/PCL 1.6.0/3rdParty/Qhull/include][v()]
+//Details about finding PCL_APPS
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_APPS:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_apps_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_COMMON
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_COMMON:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_common_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_FEATURES
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_FEATURES:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_features_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_FILTERS
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_FILTERS:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_filters_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_GEOMETRY
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_GEOMETRY:INTERNAL=[D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_IO
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_IO:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_io_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_KDTREE
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_KDTREE:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_kdtree_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_KEYPOINTS
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_KEYPOINTS:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_keypoints_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_OCTREE
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_OCTREE:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_octree_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_REGISTRATION
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_REGISTRATION:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_registration_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_SAMPLE_CONSENSUS
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_SAMPLE_CONSENSUS:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_sample_consensus_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_SEARCH
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_SEARCH:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_search_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_SEGMENTATION
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_SEGMENTATION:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_segmentation_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_SURFACE
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_SURFACE:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_surface_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_TRACKING
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_TRACKING:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_tracking_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding PCL_VISUALIZATION
+FIND_PACKAGE_MESSAGE_DETAILS_PCL_VISUALIZATION:INTERNAL=[D:/Development/PCL 1.6.0/lib/pcl_visualization_release.lib][D:/Development/PCL 1.6.0/include/pcl-1.6][v()]
+//Details about finding Qhull
+FIND_PACKAGE_MESSAGE_DETAILS_Qhull:INTERNAL=[D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic.lib][D:/Development/PCL 1.6.0/3rdParty/Qhull/include/libqhull][v()]
 //Details about finding Qt4
 FIND_PACKAGE_MESSAGE_DETAILS_Qt4:INTERNAL=[D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/bin/qmake.exe][D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/bin/moc.exe][D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/bin/rcc.exe][D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/bin/uic.exe][D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/include][D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib][optimized;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCore4.lib;debug;D:/Development/Qt/qt-everywhere-opensource-src-4.8.6/lib/QtCored4.lib][v4.8.6()]
+//Details about finding eigen
+FIND_PACKAGE_MESSAGE_DETAILS_eigen:INTERNAL=[D:/Development/PCL 1.6.0/3rdParty/Eigen/include][v()]
+//Details about finding openni
+FIND_PACKAGE_MESSAGE_DETAILS_openni:INTERNAL=[C:/Program Files (x86)/OpenNI/Lib/openNI.lib][C:/Program Files (x86)/OpenNI/Include;C:/Program Files (x86)/PrimeSense/NITE/Include][v()]
+//Details about finding qhull
+FIND_PACKAGE_MESSAGE_DETAILS_qhull:INTERNAL=[D:/Development/PCL 1.6.0/3rdParty/Qhull/lib/qhullstatic.lib][D:/Development/PCL 1.6.0/3rdParty/Qhull/include][v()]
+//ADVANCED property for variable: FLANN_INCLUDE_DIR
+FLANN_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FLANN_IS_STATIC
+FLANN_IS_STATIC-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FLANN_LIBRARY
+FLANN_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FLANN_LIBRARY_DEBUG
+FLANN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_INCLUDE_DIR
 GLUT_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLUT_glut_LIBRARY
@@ -1127,7 +1413,7 @@ GLUT_glut_LIBRARY-ADVANCED:INTERNAL=1
 //The directory where we install the header files (internal)
 INCLUDE_INSTALL_DIR:INTERNAL=C:/Program Files (x86)/RGBDemo/include/eigen3
 //Stored GUID
-INSTALL_GUID_CMAKE:INTERNAL=CEE4BF30-FE03-4C6B-A011-C69C9524E356
+INSTALL_GUID_CMAKE:INTERNAL=79439189-11DD-4E35-BE03-8CD06ABC2769
 //Nestk cmake file to be included by parent project
 NESTK_EMBEDDED_USE_FILE:INTERNAL=E:/Documents/workspace/myrgbdemo/build/nestk/UseEmbeddedNestk.cmake
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
@@ -1149,7 +1435,87 @@ OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_LIB_DIR_OPT
 OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 //Stored GUID
-PACKAGE_GUID_CMAKE:INTERNAL=5DC1070F-A705-4723-9509-04DCCEF381B6
+PACKAGE_GUID_CMAKE:INTERNAL=4F753265-8BDB-4A8D-BE68-60B138ABF7DB
+//ADVANCED property for variable: PCL_APPS_LIBRARY
+PCL_APPS_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_APPS_LIBRARY_DEBUG
+PCL_APPS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_COMMON_LIBRARY
+PCL_COMMON_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_COMMON_LIBRARY_DEBUG
+PCL_COMMON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_FEATURES_LIBRARY
+PCL_FEATURES_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_FEATURES_LIBRARY_DEBUG
+PCL_FEATURES_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_FILTERS_LIBRARY
+PCL_FILTERS_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_FILTERS_LIBRARY_DEBUG
+PCL_FILTERS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_IO_LIBRARY
+PCL_IO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_IO_LIBRARY_DEBUG
+PCL_IO_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_KDTREE_LIBRARY
+PCL_KDTREE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_KDTREE_LIBRARY_DEBUG
+PCL_KDTREE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_KEYPOINTS_LIBRARY
+PCL_KEYPOINTS_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_KEYPOINTS_LIBRARY_DEBUG
+PCL_KEYPOINTS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_OCTREE_LIBRARY
+PCL_OCTREE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_OCTREE_LIBRARY_DEBUG
+PCL_OCTREE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_REGISTRATION_LIBRARY
+PCL_REGISTRATION_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_REGISTRATION_LIBRARY_DEBUG
+PCL_REGISTRATION_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SAMPLE_CONSENSUS_LIBRARY
+PCL_SAMPLE_CONSENSUS_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SAMPLE_CONSENSUS_LIBRARY_DEBUG
+PCL_SAMPLE_CONSENSUS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SEARCH_LIBRARY
+PCL_SEARCH_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SEARCH_LIBRARY_DEBUG
+PCL_SEARCH_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SEGMENTATION_LIBRARY
+PCL_SEGMENTATION_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SEGMENTATION_LIBRARY_DEBUG
+PCL_SEGMENTATION_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SURFACE_LIBRARY
+PCL_SURFACE_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_SURFACE_LIBRARY_DEBUG
+PCL_SURFACE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_TRACKING_LIBRARY
+PCL_TRACKING_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_TRACKING_LIBRARY_DEBUG
+PCL_TRACKING_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_VISUALIZATION_LIBRARY
+PCL_VISUALIZATION_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PCL_VISUALIZATION_LIBRARY_DEBUG
+PCL_VISUALIZATION_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+PC_FLANN_CFLAGS:INTERNAL=
+PC_FLANN_CFLAGS_I:INTERNAL=
+PC_FLANN_CFLAGS_OTHER:INTERNAL=
+PC_FLANN_FOUND:INTERNAL=
+PC_FLANN_INCLUDEDIR:INTERNAL=
+PC_FLANN_LIBDIR:INTERNAL=
+PC_FLANN_LIBS:INTERNAL=
+PC_FLANN_LIBS_L:INTERNAL=
+PC_FLANN_LIBS_OTHER:INTERNAL=
+PC_FLANN_LIBS_PATHS:INTERNAL=
+PC_FLANN_PREFIX:INTERNAL=
+PC_FLANN_STATIC_CFLAGS:INTERNAL=
+PC_FLANN_STATIC_CFLAGS_I:INTERNAL=
+PC_FLANN_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_FLANN_STATIC_LIBDIR:INTERNAL=
+PC_FLANN_STATIC_LIBS:INTERNAL=
+PC_FLANN_STATIC_LIBS_L:INTERNAL=
+PC_FLANN_STATIC_LIBS_OTHER:INTERNAL=
+PC_FLANN_STATIC_LIBS_PATHS:INTERNAL=
+PC_FLANN_VERSION:INTERNAL=
 PC_OPENNI_CFLAGS:INTERNAL=
 PC_OPENNI_CFLAGS_I:INTERNAL=
 PC_OPENNI_CFLAGS_OTHER:INTERNAL=
@@ -1172,6 +1538,12 @@ PC_OPENNI_STATIC_LIBS_PATHS:INTERNAL=
 PC_OPENNI_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: QHULL_INCLUDE_DIR
+QHULL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: QHULL_LIBRARY
+QHULL_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: QHULL_LIBRARY_DEBUG
+QHULL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: QT_ARTHURPLUGIN_PLUGIN_DEBUG
 QT_ARTHURPLUGIN_PLUGIN_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: QT_ARTHURPLUGIN_PLUGIN_RELEASE
@@ -1603,56 +1975,83 @@ Q_WS_WIN:INTERNAL=1
 //Have symbol Q_WS_X11
 Q_WS_X11:INTERNAL=
 //Stored GUID
-SG_Filter_CMake Rules_GUID_CMAKE:INTERNAL=8941C3AB-9047-4D6A-8914-4FB63A52ACBA
+SG_Filter_CMake Rules_GUID_CMAKE:INTERNAL=454EE698-4EDF-4B86-AF2E-E84E761AAB48
 //Stored GUID
-SG_Filter_Header Files_GUID_CMAKE:INTERNAL=8011B497-241F-4623-B5CE-22E2997A5816
+SG_Filter_Header Files_GUID_CMAKE:INTERNAL=3A048D5D-7217-49A2-89FB-FAD6E179BCEA
 //Stored GUID
-SG_Filter_Object Files_GUID_CMAKE:INTERNAL=9140D32C-C440-4B67-95F8-7566C04360B5
+SG_Filter_Object Files_GUID_CMAKE:INTERNAL=FFAC17BF-7D50-4AC0-8DFA-04EC0DFF3AEF
 //Stored GUID
-SG_Filter_Resources_GUID_CMAKE:INTERNAL=3DDAB40C-AE4F-4627-841A-909855D456A9
+SG_Filter_Resources_GUID_CMAKE:INTERNAL=314F3100-E4AE-4779-939A-4C66B114C85D
 //Stored GUID
-SG_Filter_Source Files_GUID_CMAKE:INTERNAL=C882DFC9-1D24-48C6-A52D-C3B1FEBD4259
+SG_Filter_Source Files_GUID_CMAKE:INTERNAL=6786EBEA-5238-4C9B-8ADE-C85E07C57590
 //Stored GUID
-ZERO_CHECK_GUID_CMAKE:INTERNAL=07ABEF11-78B8-4C50-9870-1A56ECA8D7BF
+ZERO_CHECK_GUID_CMAKE:INTERNAL=56CD0B3A-DECA-483D-B894-8D3DBC934D6D
+//Last used BOOST_ROOT value.
+_BOOST_ROOT_LAST:INTERNAL=D:/Development/PCL 1.6.0/3rdParty/Boost
+//Last used Boost_ADDITIONAL_VERSIONS value.
+_Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.47;1.47.0
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=date_time;filesystem;iostreams;system;thread
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=D:/Development/PCL 1.6.0/3rdParty/Boost/include
+//Last used Boost_LIBRARY_DIR value.
+_Boost_LIBRARY_DIR_LAST:INTERNAL=D:/Development/PCL 1.6.0/3rdParty/Boost/lib
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=ON
+//Last used Boost_USE_STATIC_LIBS value.
+_Boost_USE_STATIC_LIBS_LAST:INTERNAL=ON
+__pkg_config_checked_PC_FLANN:INTERNAL=1
 __pkg_config_checked_PC_OPENNI:INTERNAL=1
 //Stored GUID
-buildtests_GUID_CMAKE:INTERNAL=F63962A0-3C59-46C7-80EC-5DE8587EDCD9
+buildtests_GUID_CMAKE:INTERNAL=6CAB50D6-DD08-47A2-A6AA-48F2D33036C8
 //Stored GUID
-calibrate-kinect-ir_GUID_CMAKE:INTERNAL=92B71F02-E179-4AA2-BE8B-37388CD76C20
+calibrate-kinect-ir_GUID_CMAKE:INTERNAL=18797AB7-3970-434A-B084-E17676198DD4
 //Stored GUID
-calibrate-multiple-kinects_GUID_CMAKE:INTERNAL=27334973-4D88-45BB-B02D-34B0092FF9DC
+calibrate-multiple-kinects_GUID_CMAKE:INTERNAL=80D7CEC1-8B19-498E-B07D-8879C097347F
 //Stored GUID
-calibrate-openni-depth_GUID_CMAKE:INTERNAL=8E0599DB-F891-42D9-B5D6-38F79E6BBF09
+calibrate-openni-depth_GUID_CMAKE:INTERNAL=E5E314C7-CF1F-406E-ACEB-94DFD4D1B53D
 //Stored GUID
-calibrate-openni-intrinsics_GUID_CMAKE:INTERNAL=CFDEDAF1-1857-4BD0-AB85-2994221CE506
+calibrate-openni-intrinsics_GUID_CMAKE:INTERNAL=47A4B867-3AF7-445A-A24F-6E3B6DFC2890
 //Stored GUID
-calibrate-projector_GUID_CMAKE:INTERNAL=599AE106-C232-4660-A2AF-28FC68FD1C45
+calibrate-projector_GUID_CMAKE:INTERNAL=B84FE9AE-F8BC-4E34-98AC-6D1BC52A9D3C
 //Stored GUID
-check_GUID_CMAKE:INTERNAL=914FAE3A-1294-4BC6-B525-2152EEFA5E55
+check_GUID_CMAKE:INTERNAL=C8842E05-8867-4AB7-A965-96F907408002
 //Stored GUID
-glew_GUID_CMAKE:INTERNAL=504CA496-1DA4-40EF-8CF0-BD7CDC650612
+glew_GUID_CMAKE:INTERNAL=AC678DB4-1210-4033-AF7C-21DCE402A6ED
 //Stored GUID
-grab-mesh_GUID_CMAKE:INTERNAL=C2539E28-1FE7-4A6F-A70D-C943DA73D27E
+grab-mesh_GUID_CMAKE:INTERNAL=68A99E9E-E5EB-4787-A365-1A7C1E8ABAF3
 //Stored GUID
-handpoint-tracking_GUID_CMAKE:INTERNAL=B8B0F2D0-833C-4295-9230-8A519BD3E64A
+handpoint-tracking_GUID_CMAKE:INTERNAL=90BEF080-CF66-4CBB-AFD7-5224ED922986
 //Stored GUID
-multiple-kinects_GUID_CMAKE:INTERNAL=92597FFA-91EE-4975-8E93-50121B18DDED
+icp-pcl_GUID_CMAKE:INTERNAL=6010C014-FC5B-4964-8FD1-1446B7EE0353
 //Stored GUID
-nestk_GUID_CMAKE:INTERNAL=E78C271F-D5B2-479E-9B92-0DC028CFA7B1
+multiple-kinects_GUID_CMAKE:INTERNAL=63EC062B-0BD9-4122-A4A8-73CC00CA6837
 //Stored GUID
-openni-backend_GUID_CMAKE:INTERNAL=91EE9FAE-DE10-434B-973B-095790C5BC7C
+nestk_GUID_CMAKE:INTERNAL=B88EF2D0-ADCB-4FBE-B9C4-AAC6E5055948
 //Stored GUID
-rgbd-people-tracker_GUID_CMAKE:INTERNAL=3EF51C17-3C5B-4A3D-8FD9-8E0106F80705
+openni-backend_GUID_CMAKE:INTERNAL=B8419070-D446-43AC-9880-5A13C8ECB5DA
 //Stored GUID
-rgbd-reconstructor_GUID_CMAKE:INTERNAL=E06747EA-AF60-4C86-846A-26B85F315786
+pcl-compatibility_GUID_CMAKE:INTERNAL=5AAF5E4C-38A7-4E47-B8E9-E3288974DA2F
 //Stored GUID
-rgbd-skeletor_GUID_CMAKE:INTERNAL=DE06F926-C6C5-4F41-8AD4-4889DD196EC3
+rgbd-multikinect_GUID_CMAKE:INTERNAL=0947AC78-101D-4F50-99C6-9AEFDE72C7FF
 //Stored GUID
-rgbd-viewer_GUID_CMAKE:INTERNAL=2F49E3C5-5908-4F2C-982A-35CFD8956101
+rgbd-people-tracker_GUID_CMAKE:INTERNAL=6508F8DE-E943-4B12-90DD-DF4B556866CB
 //Stored GUID
-skeleton-tracking_GUID_CMAKE:INTERNAL=A40533FA-7E0E-4284-8B2F-4F460A8D293E
+rgbd-reconstructor_GUID_CMAKE:INTERNAL=96E21F09-492F-46E2-9D7E-634C2B0FF679
+//Stored GUID
+rgbd-scan-markers_GUID_CMAKE:INTERNAL=C87F132C-56EA-497A-B3BC-43B5822868C5
+//Stored GUID
+rgbd-scan-topview_GUID_CMAKE:INTERNAL=42F0BEE3-68A1-42B2-9F16-3A8CF3035243
+//Stored GUID
+rgbd-skeletor_GUID_CMAKE:INTERNAL=8AC0DB92-022A-4F67-8BE9-012AF30475C1
+//Stored GUID
+rgbd-viewer_GUID_CMAKE:INTERNAL=FCC6D6CD-5E79-4953-8924-00CE9D15D1A8
+//Stored GUID
+skeleton-tracking_GUID_CMAKE:INTERNAL=E3C1C16E-54B7-4371-9F88-5AC142F4F616
 //Test standard_math_library_linked_to_automatically
 standard_math_library_linked_to_automatically:INTERNAL=1
 //Stored GUID
-synchronized-multiple-kinects_GUID_CMAKE:INTERNAL=5E635D08-34D7-4697-B196-99B637703EFB
+synchronized-multiple-kinects_GUID_CMAKE:INTERNAL=F1241740-08B9-412C-93DF-68D5C2B066BD
+//Stored GUID
+table-top-object_GUID_CMAKE:INTERNAL=1F71919A-E920-4FA8-9E02-B978B15D7EF1
 

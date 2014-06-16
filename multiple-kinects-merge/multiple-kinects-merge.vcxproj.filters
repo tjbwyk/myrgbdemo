@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="synchronized_multiple_kinects_merge.cpp">
+    <ClCompile Include="multiple_kinects_merge.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

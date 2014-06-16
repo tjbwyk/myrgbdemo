@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{914FAE3A-1294-4BC6-B525-2152EEFA5E55}</ProjectGUID>
+    <ProjectGUID>{C8842E05-8867-4AB7-A965-96F907408002}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>check</ProjectName>
@@ -207,10 +207,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/ZERO_CHECK.vcxproj">
-      <Project>07ABEF11-78B8-4C50-9870-1A56ECA8D7BF</Project>
+      <Project>56CD0B3A-DECA-483D-B894-8D3DBC934D6D</Project>
     </ProjectReference>
     <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/nestk/deps/eigen/buildtests.vcxproj">
-      <Project>F63962A0-3C59-46C7-80EC-5DE8587EDCD9</Project>
+      <Project>6CAB50D6-DD08-47A2-A6AA-48F2D33036C8</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

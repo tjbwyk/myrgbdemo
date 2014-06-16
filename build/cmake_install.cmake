@@ -35,6 +35,9 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("E:/Documents/workspace/myrgbdemo/build/reconstructor/cmake_install.cmake")
   INCLUDE("E:/Documents/workspace/myrgbdemo/build/people-tracker/cmake_install.cmake")
   INCLUDE("E:/Documents/workspace/myrgbdemo/build/skeletor/cmake_install.cmake")
+  INCLUDE("E:/Documents/workspace/myrgbdemo/build/multikinect/cmake_install.cmake")
+  INCLUDE("E:/Documents/workspace/myrgbdemo/build/scan-topview/cmake_install.cmake")
+  INCLUDE("E:/Documents/workspace/myrgbdemo/build/scan-markers/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

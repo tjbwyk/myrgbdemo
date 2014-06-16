@@ -17,12 +17,17 @@
  * Author: Nicolas Burrus <nicolas.burrus@uc3m.es>, (C) 2010
  */
 
+#define NESTK_USE_PCL 1
+
 #include <ntk/core.h>
 #include <ntk/utils/debug.h>
+#include <ntk/mesh/pcl_utils.h>
 
 #include <ntk/camera/openni_grabber.h>
 #include <ntk/camera/rgbd_processor.h>
 #include <ntk/utils/opencv_utils.h>
+
+#include <pcl/point_types.h>
 
 #include <QMessageBox>
 #include <QApplication>
@@ -67,6 +72,13 @@ int main(int argc, char** argv)
       grabber2.waitForNextFrame();
       grabber2.copyImageTo(image2);
       post_processor.processImage(image2);
+
+	  // Transform the RGBDImage to PCL
+	  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud1 (new pcl::PointCloud<pcl::PointXYZ>());
+	  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud2 (new pcl::PointCloud<pcl::PointXYZ>());
+	  ntk::rgbdImageToPointCloud(*cloud1, image1);
+	  ntk::rgbdImageToPointCloud(*cloud2, image2);
+
 
       cv::Mat1b debug_depth_img1 = normalize_toMat1b(image1.depth());
       cv::Mat1b debug_depth_img2 = normalize_toMat1b(image2.depth());

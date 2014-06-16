@@ -26,6 +26,18 @@
 -IC:/Program Files (x86)/PrimeSense/NITE/Include
 -IC:/Program Files (x86)/OpenNI/Include
 -IC:/Program Files (x86)/PrimeSense/NITE/Include
+-ID:/Development/PCL 1.6.0/3rdParty/VTK/include/vtk-5.8
+-ID:/Development/PCL 1.6.0/3rdParty/Boost/include
+-ID:/Development/PCL 1.6.0/3rdParty/FLANN/include
+-ID:/Development/PCL 1.6.0/3rdParty/Qhull/include/libqhull
+-ID:/Development/PCL 1.6.0/include/pcl-1.6
+-ID:/Development/PCL 1.6.0/3rdParty/Eigen/include
+-ID:/Development/PCL 1.6.0/3rdParty/Boost/include
+-IC:/Program Files (x86)/OpenNI/Include
+-IC:/Program Files (x86)/PrimeSense/NITE/Include
+-ID:/Development/PCL 1.6.0/3rdParty/VTK/include/vtk-5.8
+-ID:/Development/PCL 1.6.0/3rdParty/FLANN/include
+-ID:/Development/PCL 1.6.0/3rdParty/Qhull/include
 -IE:/Documents/workspace/myrgbdemo/nestk/deps/include
 -IE:/Documents/workspace/myrgbdemo/nestk/deps/eigen
 -IE:/Documents/workspace/myrgbdemo/nestk/deps/win32/glut-msvc
@@ -47,6 +59,10 @@
 -DQT_CORE_LIB
 -DNESTK_USE_GLEW
 -DNESTK_USE_OPENNI
+-DNESTK_USE_PCL
+-DHAVE_PCL_GREATER_THAN_1_2_0
+-DBOOST_LIB_DIAGNOSTIC
+-DFLANN_STATIC
 -DNESTK_USE_GLEW
 -DWIN32
 -o

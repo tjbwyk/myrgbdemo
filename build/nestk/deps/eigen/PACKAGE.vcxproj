@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{5DC1070F-A705-4723-9509-04DCCEF381B6}</ProjectGUID>
+    <ProjectGUID>{4F753265-8BDB-4A8D-BE68-60B138ABF7DB}</ProjectGUID>
     <Keyword>Win32Proj</Keyword>
     <Platform>Win32</Platform>
     <ProjectName>PACKAGE</ProjectName>
@@ -216,7 +216,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="E:/Documents/workspace/myrgbdemo/build/nestk/deps/eigen/ALL_BUILD.vcxproj">
-      <Project>12109343-9E39-4274-83A2-16D3AD111722</Project>
+      <Project>97DB9028-B464-4A61-9FE2-582C4D10F89D</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

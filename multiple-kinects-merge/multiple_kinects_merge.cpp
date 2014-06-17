@@ -59,7 +59,36 @@ int main(int argc, char** argv)
     ntk::ntk_debug_level = 1;
 	QApplication app(argc, argv);
 
+	OpenniDriver ni_driver;
 
+	if (ni_driver.numDevices() < 2)
+	{
+		QMessageBox::critical(0, "Error", "Less than two Kinect were detected.");
+		exit(1);
+	}
+
+	OpenniGrabber grabber1(ni_driver, 0); // first id is 0
+	OpenniGrabber grabber2(ni_driver, 1);
+
+	grabber1.setHighRgbResolution(false);
+	grabber2.setHighRgbResolution(false);
+
+	printf("frameRate is set at:%d\n",grabber1.frameRate());
+
+	grabber1.setTrackUsers(false);
+	grabber2.setTrackUsers(false);
+
+	grabber1.connectToDevice();
+	grabber2.connectToDevice();
+
+	print_timestamp();
+	printf("before start.\n");
+
+	grabber1.start();
+	grabber2.start();
+
+	print_timestamp();
+	printf("before grab 1.\n");
 
     RGBDImage image1, image2;
     OpenniRGBDProcessor post_processor;
@@ -70,46 +99,18 @@ int main(int argc, char** argv)
 	viewer->initCameraParameters ();
 
 	int v1(0);
-	viewer->createViewPort(0.0, 0.0, 0.5, 1.0, v1);
+	viewer->createViewPort(0.0, 0.0, 0.33, 1.0, v1);
 	viewer->setBackgroundColor (0, 0, 0, v1);
 	viewer->addText("Radius: 0.01", 10, 10, "v1 text", v1);
 	int v2(1);
-	viewer->createViewPort(0.5, 0.0, 1.0, 1.0, v2);
+	viewer->createViewPort(0.33, 0.0, 0.67, 1.0, v2);
 	viewer->setBackgroundColor (0.1, 0.1, 0.1, v2);
+	int v3(2);
+	viewer->createViewPort(0.67, 0.0, 1.0, 1.0, v3);
+	viewer->setBackgroundColor (0.2, 0.2, 0.2, v3);
 
-    while (true)
+    if (true)
     {
-
-		OpenniDriver ni_driver;
-
-		if (ni_driver.numDevices() < 2)
-		{
-			QMessageBox::critical(0, "Error", "Less than two Kinect were detected.");
-			exit(1);
-		}
-
-		OpenniGrabber grabber1(ni_driver, 0); // first id is 0
-		OpenniGrabber grabber2(ni_driver, 1);
-
-		grabber1.setHighRgbResolution(false);
-		grabber2.setHighRgbResolution(false);
-
-		printf("frameRate is set at:%d\n",grabber1.frameRate());
-
-		grabber1.setTrackUsers(false);
-		grabber2.setTrackUsers(false);
-
-		grabber1.connectToDevice();
-		grabber2.connectToDevice();
-
-		print_timestamp();
-		printf("before start.\n");
-
-		grabber1.start();
-		grabber2.start();
-
-		print_timestamp();
-		printf("before grab 1.\n");
       // Wait for a new frame, get a local copy and postprocess it.
       grabber1.waitForNextFrame();
 	  print_timestamp();
@@ -137,16 +138,16 @@ int main(int argc, char** argv)
 	  ntk::rgbdImageToPointCloud(*cloud1, image1);
 	  print_timestamp();
 	  printf("before rgbdImageToPointCloud 2.\n");
-	  //ntk::rgbdImageToPointCloud(*cloud2, image2);
+	  ntk::rgbdImageToPointCloud(*cloud2, image2);
 
 	  // Registration
-#if 0
+#if 1
 	  print_timestamp();
 	  printf("before ICP.\n");
 	  pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
 	  icp.setInputCloud(cloud2);	//Source cloud
 	  icp.setInputTarget(cloud1);	//Target cloud
-	  icp.setMaxCorrespondenceDistance(0.01);
+	  icp.setMaxCorrespondenceDistance(0.1);
 	  icp.setMaximumIterations(50);
 	  icp.setTransformationEpsilon(1e-8);
 	  icp.setEuclideanFitnessEpsilon(1);
@@ -159,9 +160,11 @@ int main(int argc, char** argv)
 
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cloud1, 255, 255, 255);
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color2(cloud2, 0, 255, 255);
+	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color3(cloud_reg, 0, 255, 0);
 	  
 	  viewer->addPointCloud<pcl::PointXYZ> (cloud1, single_color, "target", v1);
-	  viewer->addPointCloud<pcl::PointXYZ> (cloud2, single_color2, "v2", v2);
+	  viewer->addPointCloud<pcl::PointXYZ> (cloud2, single_color2, "source", v2);
+	  viewer->addPointCloud<pcl::PointXYZ> (cloud_reg, single_color3, "transformed source", v3);
 
 #if 0
       cv::Mat1b debug_depth_img1 = normalize_toMat1b(image1.depth());
@@ -182,22 +185,16 @@ int main(int argc, char** argv)
 	  //--------------------
 	  print_timestamp();
 	  printf("before main loop.\n");
-	  if (!viewer->wasStopped()) {
+	  while (!viewer->wasStopped()) {
 		  print_timestamp();
 		  printf("before spinOnce.\n");
 		  viewer->spinOnce (100);
 		  print_timestamp();
 		  printf("after spinOnce, before waitKey.\n");
-		  cv::waitKey(10);
 		  print_timestamp();
 		  printf("after waitKey.\n");
 	  }
 	  print_timestamp();
 	  printf("after main loop, and before stopping\n");
-	  grabber1.stop();
-	  grabber2.stop();
-	  print_timestamp();
-	  printf("after stopping\n");
-
     }
 }

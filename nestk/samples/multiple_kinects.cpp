@@ -17,6 +17,8 @@
  * Author: Nicolas Burrus <nicolas.burrus@uc3m.es>, (C) 2010
  */
 
+#include <ctime>
+
 #include <ntk/core.h>
 #include <ntk/utils/debug.h>
 
@@ -39,23 +41,26 @@ int main(int argc, char** argv)
 	if (ni_driver.numDevices() < 2)
 	{
 		QMessageBox::critical(0, "Error", "Less than two Kinect were detected.");
-		exit(1);
+		//exit(1);
 	}
 
     OpenniGrabber grabber1(ni_driver, 0); // first id is 0
     OpenniGrabber grabber2(ni_driver, 1);
 
     grabber1.setTrackUsers(false);
-    grabber2.setTrackUsers(false);
+    //grabber2.setTrackUsers(false);
 
     grabber1.connectToDevice();
-    grabber2.connectToDevice();
+    //grabber2.connectToDevice();
 
     grabber1.start();
-    grabber2.start();
+    //grabber2.start();
 
     RGBDImage image1, image2;
     OpenniRGBDProcessor post_processor;
+
+	time_t rawtime;
+	struct tm * timeinfo;
 
     while (true)
     {
@@ -64,9 +69,9 @@ int main(int argc, char** argv)
       grabber1.copyImageTo(image1);
       post_processor.processImage(image1);
 
-      grabber2.waitForNextFrame();
-      grabber2.copyImageTo(image2);
-      post_processor.processImage(image2);
+      //grabber2.waitForNextFrame();
+      //grabber2.copyImageTo(image2);
+      //post_processor.processImage(image2);
 
       cv::Mat1b debug_depth_img1 = normalize_toMat1b(image1.depth());
       cv::Mat1b debug_depth_img2 = normalize_toMat1b(image2.depth());
@@ -74,11 +79,14 @@ int main(int argc, char** argv)
       cv::Mat3b debug_color_img1 = image1.mappedRgb();
       cv::Mat3b debug_color_img2 = image2.mappedRgb();
 
-      imshow("depth1", debug_depth_img1);
-      imshow("color1", debug_color_img1);
-
-      imshow("depth2", debug_depth_img2);
-      imshow("color2", debug_color_img2);
-      cv::waitKey(10);
+//       imshow("depth1", debug_depth_img1);
+//       imshow("color1", debug_color_img1);
+// 
+//       imshow("depth2", debug_depth_img2);
+//       imshow("color2", debug_color_img2);
+//       cv::waitKey(10);
+	  time(&rawtime);
+	  timeinfo = localtime(&rawtime);
+	  printf ("Current local time and date: %s", asctime(timeinfo));
     }
 }

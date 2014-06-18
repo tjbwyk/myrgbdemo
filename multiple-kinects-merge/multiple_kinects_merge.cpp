@@ -99,15 +99,15 @@ int main(int argc, char** argv)
 	viewer->initCameraParameters ();
 
 	int v1(0);
-	viewer->createViewPort(0.0, 0.0, 0.33, 1.0, v1);
+	viewer->createViewPort(0.0, 0.0, 1.0, 1.0, v1);
 	viewer->setBackgroundColor (0, 0, 0, v1);
 	viewer->addText("Radius: 0.01", 10, 10, "v1 text", v1);
-	int v2(1);
-	viewer->createViewPort(0.33, 0.0, 0.67, 1.0, v2);
-	viewer->setBackgroundColor (0.1, 0.1, 0.1, v2);
-	int v3(2);
-	viewer->createViewPort(0.67, 0.0, 1.0, 1.0, v3);
-	viewer->setBackgroundColor (0.2, 0.2, 0.2, v3);
+// 	int v2(1);
+// 	viewer->createViewPort(0.33, 0.0, 0.67, 1.0, v2);
+// 	viewer->setBackgroundColor (0.1, 0.1, 0.1, v2);
+// 	int v3(2);
+// 	viewer->createViewPort(0.67, 0.0, 1.0, 1.0, v3);
+// 	viewer->setBackgroundColor (0.2, 0.2, 0.2, v3);
 
     if (true)
     {
@@ -163,8 +163,8 @@ int main(int argc, char** argv)
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color3(cloud_reg, 0, 255, 0);
 	  
 	  viewer->addPointCloud<pcl::PointXYZ> (cloud1, single_color, "target", v1);
-	  viewer->addPointCloud<pcl::PointXYZ> (cloud2, single_color2, "source", v2);
-	  viewer->addPointCloud<pcl::PointXYZ> (cloud_reg, single_color3, "transformed source", v3);
+	  //viewer->addPointCloud<pcl::PointXYZ> (cloud2, single_color2, "source", v2);
+	  viewer->addPointCloud<pcl::PointXYZ> (cloud_reg, single_color3, "transformed source", v1);
 
 #if 0
       cv::Mat1b debug_depth_img1 = normalize_toMat1b(image1.depth());

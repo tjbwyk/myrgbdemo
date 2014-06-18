@@ -28,9 +28,12 @@
 #include <ntk/utils/opencv_utils.h>
 
 #include <pcl/io/pcd_io.h>
+#include <pcl/common/io.h>
 #include <pcl/point_types.h>
 #include <pcl/registration/icp.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/keypoints/sift_keypoint.h>
+#include <pcl/filters/voxel_grid.h>
 
 #include <QMessageBox>
 #include <QApplication>
@@ -38,7 +41,12 @@
 using namespace ntk;
 #include <ctime>
 #include <iostream>
+#include "pcl/features/normal_3d.h"
+#include "pcl/impl/point_types.hpp"
 using namespace std;
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr do_the_sift(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz);
+pcl::PointCloud<pcl::PointXYZ>::Ptr do_the_downsampling (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud);
 
 void print_timestamp() {
 	time_t t = time(0);   // get time now
@@ -164,8 +172,11 @@ int main(int argc, char** argv)
 #endif
 
 #if 1
-	  // Ransac to get inliers
-
+	cloud1 = do_the_downsampling(cloud1); // WARNING: cloud1 replaced!!
+	pcl::PointCloud<pcl::PointXYZ>::Ptr sift_keypoints1 = do_the_sift(cloud1);
+	cloud2 = do_the_downsampling(cloud2); // WARNING: cloud2 replaced!!
+	pcl::PointCloud<pcl::PointXYZ>::Ptr sift_keypoints2 = do_the_sift(cloud2);
+	
 #endif
 	  
 	  viewer->removeAllPointClouds();
@@ -173,7 +184,7 @@ int main(int argc, char** argv)
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cloud1, 255, 255, 255);
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color2(cloud2, 0, 255, 255);
 	  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color3(cloud_reg, 0, 255, 0);
-	  
+
 	  viewer->addPointCloud<pcl::PointXYZ> (cloud1, single_color, "target", v1);
 	  //viewer->addPointCloud<pcl::PointXYZ> (cloud2, single_color2, "source", v2);
 	  viewer->addPointCloud<pcl::PointXYZ> (cloud_reg, single_color3, "transformed source", v1);
@@ -209,4 +220,93 @@ int main(int argc, char** argv)
 	  print_timestamp();
 	  printf("after main loop, and before stopping\n");
     }
+}
+
+/* This example shows how to estimate the SIFT points based on the
+ * Normal gradients i.e. curvature than using the Intensity gradient
+ * as usually used for SIFT keypoint estimation.
+ */
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr
+do_the_sift(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz)
+{
+  std::cout << "points: " << cloud_xyz->points.size () <<std::endl;
+  
+  // Parameters for sift computation
+  const float min_scale = 0.01f;
+  const int n_octaves = 3;
+  const int n_scales_per_octave = 4;
+  const float min_contrast = 0.001f;
+  
+  // Estimate the normals of the cloud_xyz
+  pcl::NormalEstimation<pcl::PointXYZ, pcl::PointNormal> ne;
+  pcl::PointCloud<pcl::PointNormal>::Ptr cloud_normals (new pcl::PointCloud<pcl::PointNormal>);
+  pcl::search::KdTree<pcl::PointXYZ>::Ptr tree_n(new pcl::search::KdTree<pcl::PointXYZ>());
+  print_timestamp();printf("do_the_sift: before setInputCloud.\n");
+  ne.setInputCloud(cloud_xyz);
+  print_timestamp();printf("do_the_sift: before setSearchMethod and setRadiusSearch.\n");
+  ne.setSearchMethod(tree_n);
+  ne.setRadiusSearch(0.2);
+  print_timestamp();printf("do_the_sift: before compute(*clouds_normals).\n");
+  ne.compute(*cloud_normals);
+
+  print_timestamp();printf("do_the_sift: before copying the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero.\n");
+  // Copy the xyz info from cloud_xyz and add it to cloud_normals as the xyz field in PointNormals estimation is zero
+  for(size_t i = 0; i<cloud_normals->points.size(); ++i)
+  {
+    cloud_normals->points[i].x = cloud_xyz->points[i].x;
+    cloud_normals->points[i].y = cloud_xyz->points[i].y;
+    cloud_normals->points[i].z = cloud_xyz->points[i].z;
+  }
+  print_timestamp();printf("do_the_sift: end for, before all the settings for sift.\n");
+  // Estimate the sift interest points using normals values from xyz as the Intensity variants
+  pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
+  pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale> ());
+  pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal> ());
+  sift.setSearchMethod(tree);
+  sift.setScales(min_scale, n_octaves, n_scales_per_octave);
+  sift.setMinimumContrast(min_contrast);
+  sift.setInputCloud(cloud_normals);
+  print_timestamp();printf("do_the_sift: before sift.compute(result).\n");
+  sift.compute(*result);
+
+  std::cout << "No of SIFT points in the result are " << result->points.size () << std::endl;
+
+  // Copying the pointwithscale to pointxyz so as visualize the cloud
+  pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_temp (new pcl::PointCloud<pcl::PointXYZ>);
+  copyPointCloud(*result, *cloud_temp);
+  std::cout << "SIFT points in the cloud_temp are " << cloud_temp->points.size () << std::endl;
+  
+  
+  // Visualization of keypoints along with the original cloud
+  pcl::visualization::PCLVisualizer viewer("PCL Viewer");
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints_color_handler (cloud_temp, 0, 255, 0);
+  pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud_xyz, 255, 0, 0);
+  viewer.setBackgroundColor( 0.0, 0.0, 0.0 );
+  viewer.addPointCloud(cloud_xyz, cloud_color_handler, "cloud");
+  viewer.addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
+  viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
+  
+  while(!viewer.wasStopped ())
+  {
+  viewer.spinOnce ();
+  }
+
+  return cloud_temp;
+  
+}
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr
+	do_the_downsampling (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+{
+	// Create the filtering object
+	pcl::VoxelGrid<pcl::PointXYZ> sor;
+	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>());
+	sor.setInputCloud (cloud);
+	sor.setLeafSize (0.01f, 0.01f, 0.01f);
+	sor.filter (*cloud_filtered);
+
+	std::cerr << "PointCloud after filtering: " << cloud_filtered->width * cloud_filtered->height 
+		<< " data points (" << pcl::getFieldsList (*cloud_filtered) << ").";
+	return cloud_filtered;
 }

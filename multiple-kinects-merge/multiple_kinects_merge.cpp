@@ -27,6 +27,7 @@
 #include <ntk/camera/rgbd_processor.h>
 #include <ntk/utils/opencv_utils.h>
 
+#include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
 #include <pcl/registration/icp.h>
 #include <pcl/visualization/pcl_visualizer.h>
@@ -72,8 +73,6 @@ int main(int argc, char** argv)
 
 	grabber1.setHighRgbResolution(false);
 	grabber2.setHighRgbResolution(false);
-
-	printf("frameRate is set at:%d\n",grabber1.frameRate());
 
 	grabber1.setTrackUsers(false);
 	grabber2.setTrackUsers(false);
@@ -140,8 +139,16 @@ int main(int argc, char** argv)
 	  printf("before rgbdImageToPointCloud 2.\n");
 	  ntk::rgbdImageToPointCloud(*cloud2, image2);
 
-	  // Registration
-#if 1
+	  // Write the clouds to files
+	  print_timestamp();
+	  printf("before savePDFFileASCII.\n");
+	  pcl::io::savePCDFileASCII("cloud1.pcd", *cloud1);
+	  pcl::io::savePCDFileASCII("cloud2.pcd", *cloud2);
+	  print_timestamp();
+	  printf("after savePDFFileASCII.\n");
+
+	  // ICP Registration
+#if 0
 	  print_timestamp();
 	  printf("before ICP.\n");
 	  pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
@@ -154,6 +161,11 @@ int main(int argc, char** argv)
 	  icp.align(*cloud_reg);
 
 	  Eigen::Matrix4f trans = icp.getFinalTransformation ();
+#endif
+
+#if 1
+	  // Ransac to get inliers
+
 #endif
 	  
 	  viewer->removeAllPointClouds();

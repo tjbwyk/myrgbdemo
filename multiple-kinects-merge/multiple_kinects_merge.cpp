@@ -237,6 +237,13 @@ int main(int argc, char** argv)
 		printf("No. of inlier correspondences: %i\n", inlier_correspondences->size());
 
 		Eigen::Matrix4f trans = crsac.getBestTransformation();
+		pcl::console::print_info ("    | %6.3f %6.3f %6.3f | \n", trans (0,0), trans (0,1), trans (0,2));
+		pcl::console::print_info ("R = | %6.3f %6.3f %6.3f | \n", trans (1,0), trans (1,1), trans (1,2));
+		pcl::console::print_info ("    | %6.3f %6.3f %6.3f | \n", trans (2,0), trans (2,1), trans (2,2));
+		pcl::console::print_info ("\n");
+		pcl::console::print_info ("t = < %0.3f, %0.3f, %0.3f >\n", trans (0,3), trans (1,3), trans (2,3));
+		pcl::console::print_info ("\n");
+
 		print_timestamp();
 		printf("before transformPointCloud.\n");
 		pcl::transformPointCloud(*cloud2, *cloud2_transformed, trans);
@@ -471,7 +478,7 @@ pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZ
 	fpfh.setInputNormals(normals);
 
 	// Only compute features at the keypoints	// 	printf("before set keypoints.\n");
-	fpfh.setInputCloud(cloud);
+	fpfh.setInputCloud(keypoints_xyz);
 
 	// Set it to use a KdTree to perform its neighborhood searches
 	pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>());

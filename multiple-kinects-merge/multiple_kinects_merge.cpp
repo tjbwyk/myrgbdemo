@@ -268,7 +268,7 @@ int main(int argc, char** argv)
 		print_timestamp();
 		printf("before CorrespondenceVis.\n");
 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, all_correspondences);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
 
 #endif
 	  
@@ -416,13 +416,20 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints2_color_handler(keyPoints_xyz2, 0, 0, 255);
 
 	viewer->setBackgroundColor(0, 0, 0);
-//  	viewer->addPointCloud(cloud1, cloud1_color_handler, "cloud1");
-//  	viewer->addPointCloud(cloud2, cloud2_color_handler, "cloud2");
-//  	viewer->addPointCloud(keyPoints_xyz1, keypoints1_color_handler, "keypoints1");
-//  	viewer->addPointCloud(keyPoints_xyz2, keypoints2_color_handler, "keypoints2");
-//  	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints1");
-//  	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints2");
-	viewer->addCorrespondences<pcl::PointXYZ>(keyPoints_xyz2, keyPoints_xyz1, *correspondences);
+  	viewer->addPointCloud(cloud1, cloud1_color_handler, "cloud1");
+  	viewer->addPointCloud(cloud2, cloud2_color_handler, "cloud2");
+//   	viewer->addPointCloud(keyPoints_xyz1, keypoints1_color_handler, "keypoints1");
+//   	viewer->addPointCloud(keyPoints_xyz2, keypoints2_color_handler, "keypoints2");
+//   	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints1");
+//   	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints2");
+	
+	for (size_t i = 0; i < correspondences->size(); i++) {
+		const pcl::PointWithScale &p_src = keyPoints2->points[(*correspondences)[i].index_query];
+		const pcl::PointWithScale &p_tgt = keyPoints1->points[(*correspondences)[i].index_match];
+		std::stringstream ss("line");
+		ss << i;
+		viewer->addLine(p_src, p_tgt, 1, 1, 1, ss.str());
+	}
 
 	return viewer;
 }

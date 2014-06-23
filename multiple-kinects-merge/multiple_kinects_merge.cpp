@@ -155,6 +155,7 @@ int main(int argc, char** argv)
 		post_processor.processImage(image1);
 		mesh_generator->generate(image1);
 		meshToPointCloud(*cloud1, mesh_generator->mesh());
+		printf("Number of points in cloud1: %i\n", cloud1->size());
 
 		print_timestamp();
 		printf("before grab 2.\n");
@@ -167,6 +168,7 @@ int main(int argc, char** argv)
 		post_processor.processImage(image2);
 		mesh_generator->generate(image2);
 		meshToPointCloud(*cloud2, mesh_generator->mesh());
+		printf("Number of points in cloud2: %i\n", cloud2->size());
 	 
 		// Transform the RGBDImage to PCL
 // 		print_timestamp();
@@ -211,9 +213,11 @@ int main(int argc, char** argv)
 		print_timestamp();
 		printf("before getSurfaceNormal 1.\n");
 		pcl::PointCloud<pcl::Normal>::Ptr normals1 = getSurfaceNormals(cloud1);
+		printf("Number of normals in cloud1: %i\n", normals1->size());
 		print_timestamp();
 		printf("before getSurfaceNormal 2.\n");
 		pcl::PointCloud<pcl::Normal>::Ptr normals2 = getSurfaceNormals(cloud2);
+		printf("Number of normals in cloud2: %i\n", normals2->size());
 
 		print_timestamp();
 		printf("before getSiftKeyPoints 1.\n");
@@ -278,8 +282,8 @@ int main(int argc, char** argv)
 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = keyPointsVis(cloud2, sift_keypoints2);
 		print_timestamp();
 		printf("before CorrespondenceVis.\n");
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
+		//boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
+		//boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
 
 #endif
 	  
@@ -294,8 +298,8 @@ int main(int argc, char** argv)
 			//printf("before spinOnce.\n");
 			viewer1->spinOnce();
 			viewer2->spinOnce();
-			viewer3->spinOnce();
-			viewer4->spinOnce();
+			//viewer3->spinOnce();
+			//viewer4->spinOnce();
 			//print_timestamp();
 			//printf("after spinOnce.\n");
 		}
@@ -402,10 +406,10 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints_color_handler (cloud_temp, 0, 255, 0);
 	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
-	viewer->setBackgroundColor( 0.0, 0.0, 0.0 );
+	viewer->setBackgroundColor( 0.5, 0.5, 0.5 );
 	viewer->addPointCloud(cloud, "cloud");
-	viewer->addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
-	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
+	//viewer->addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
+	//viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
 
 	return(viewer);
 }

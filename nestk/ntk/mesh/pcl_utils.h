@@ -103,6 +103,9 @@ void meshToPointCloud(pcl::PointCloud<pcl::PointXYZ>& cloud,
 void meshToPointCloud(pcl::PointCloud<pcl::PointNormal>& cloud,
                       const ntk::Mesh& mesh);
 
+void meshToPointCloud(pcl::PointCloud<pcl::PointXYZRGB>& cloud,
+                      const ntk::Mesh& mesh);
+
 void polygonMeshToMesh(ntk::Mesh& mesh, pcl::PolygonMesh& polygon);
 
 template <class PointT>

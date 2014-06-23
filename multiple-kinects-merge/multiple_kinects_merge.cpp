@@ -56,6 +56,8 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr do_the_downsampling (pcl::PointCloud<pcl:
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	simpleVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
+	normalVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::Normal>::ConstPtr normals);
+boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	keyPointsVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	CorrespondenceVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud2,
@@ -285,22 +287,22 @@ int main(int argc, char** argv)
 		pcl::transformPointCloud(*cloud2, *cloud2_transformed, trans);
 
 
-// 		print_timestamp();
-// 		printf("before keyPointsVis 1.\n");
-// 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1 = simpleVis(cloud1);
-// 		print_timestamp();
-// 		printf("before keyPointsVis 2.\n");
-// 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = simpleVis(cloud2);
 		print_timestamp();
 		printf("before keyPointsVis 1.\n");
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1 = keyPointsVis(cloud1, sift_keypoints1);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1 = normalVis(cloud1, normals1);
 		print_timestamp();
 		printf("before keyPointsVis 2.\n");
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = keyPointsVis(cloud2, sift_keypoints2);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = normalVis(cloud2, normals2);
+		print_timestamp();
+		printf("before keyPointsVis 1.\n");
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = keyPointsVis(cloud1, sift_keypoints1);
+		print_timestamp();
+		printf("before keyPointsVis 2.\n");
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = keyPointsVis(cloud2, sift_keypoints2);
  		print_timestamp();
  		printf("before CorrespondenceVis.\n");
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
-		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer5 = MergeVis(cloud1, cloud2_transformed);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer6 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
 
 #endif
 	  
@@ -315,8 +317,10 @@ int main(int argc, char** argv)
 			//printf("before spinOnce.\n");
 			viewer1->spinOnce();
 			viewer2->spinOnce();
-			//viewer3->spinOnce();
-			//viewer4->spinOnce();
+			viewer3->spinOnce();
+			viewer4->spinOnce();
+			viewer5->spinOnce();
+			viewer6->spinOnce();
 			//print_timestamp();
 			//printf("after spinOnce.\n");
 		}
@@ -404,11 +408,23 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 {
 
 	// Visualization of keypoints along with the original cloud
-	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Simple Viewer"));
 	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_color_handler(cloud);
 	viewer->setBackgroundColor( 0.1, 0.1, 0.1 );
 	viewer->addPointCloud(cloud, cloud_color_handler, "cloud");
 
+	return(viewer);
+}
+
+boost::shared_ptr<pcl::visualization::PCLVisualizer>
+	normalVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::Normal>::ConstPtr normals)
+{
+	// Visualization of keypoints along with the original cloud
+	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Normals Viewer"));
+	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_color_handler(cloud);
+	viewer->setBackgroundColor( 0.1, 0.1, 0.1 );
+	viewer->addPointCloud(cloud, cloud_color_handler, "cloud");
+	viewer->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normals, 10, 0.02, "normals");
 	return(viewer);
 }
 
@@ -420,7 +436,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	copyPointCloud(*keyPoints, *cloud_temp);
 
 	// Visualization of keypoints along with the original cloud
-	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Key Points Viewer"));
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints_color_handler (cloud_temp, 0, 255, 0);
 	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_color_handler(cloud);
 	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
@@ -442,7 +458,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	copyPointCloud(*keyPoints1, *keyPoints_xyz1);
 	copyPointCloud(*keyPoints2, *keyPoints_xyz2);
 
-	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Reg Viewer"));
+	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Correspondences Viewer"));
 	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 0, 0);
 	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints1_color_handler(keyPoints_xyz1, 255, 255, 0);
@@ -496,7 +512,7 @@ pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXY
 	pcl::PointCloud<pcl::Normal>::Ptr cloud_normals (new pcl::PointCloud<pcl::Normal>);
 
 	// Use all neighbors in a sphere of radius 3cm
-	ne.setRadiusSearch (0.03);
+	ne.setRadiusSearch (0.1);
 
 	// Compute the features
 	ne.compute (*cloud_normals);
@@ -510,7 +526,7 @@ pcl::PointCloud<pcl::PointXYZRGB>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::Poi
 	const float min_scale = 0.008f;
 	const int n_octaves = 7;
 	const int n_scales_per_octave = 8;
-	const float min_contrast = 0.0f;
+	const float min_contrast = 2.0f;
 
 	// Estimate the sift interest points using normals values from xyz as the Intensity variants
 	pcl::SIFTKeypoint<pcl::PointXYZRGB, pcl::PointXYZRGB> sift;

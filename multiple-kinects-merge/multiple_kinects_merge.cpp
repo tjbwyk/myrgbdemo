@@ -52,9 +52,9 @@ using namespace ntk;
 using namespace std;
 
 pcl::PointCloud<pcl::PointWithScale>::Ptr do_the_sift(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_xyz);
-pcl::PointCloud<pcl::PointXYZ>::Ptr do_the_downsampling (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud);
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr do_the_downsampling (pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud);
+	simpleVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	keyPointsVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
@@ -150,12 +150,22 @@ int main(int argc, char** argv)
 		print_timestamp();
 		printf("before copyImageTo 1.\n");
 		grabber1.copyImageTo(image1);
+
 		print_timestamp();
 		printf("before processImage 1.\n");
 		post_processor.processImage(image1);
+
+		mesh_generator->setUseColor(true);
 		mesh_generator->generate(image1);
 		meshToPointCloud(*cloud1, mesh_generator->mesh());
 		printf("Number of points in cloud1: %i\n", cloud1->size());
+
+		for (int i = 0; i < 3; i++) {
+			for (int c = 0; c < 3; c++) {
+				cout << cloud1->points[i].getRGBVector3i()[c] << " ";
+			}
+			cout << endl;
+		}
 
 		print_timestamp();
 		printf("before grab 2.\n");
@@ -204,8 +214,8 @@ int main(int argc, char** argv)
 
 // Cloud registration
 #if 1
-		//cloud1 = do_the_downsampling(cloud1); // WARNING: cloud1 replaced!!
-		//cloud2 = do_the_downsampling(cloud2); // WARNING: cloud2 replaced!!
+		cloud1 = do_the_downsampling(cloud1); // WARNING: cloud1 replaced!!
+		cloud2 = do_the_downsampling(cloud2); // WARNING: cloud2 replaced!!
 
 		//pcl::PointCloud<pcl::PointWithScale>::Ptr sift_keypoints1 = do_the_sift(cloud1);
 		//pcl::PointCloud<pcl::PointWithScale>::Ptr sift_keypoints2 = do_the_sift(cloud2)
@@ -274,16 +284,23 @@ int main(int argc, char** argv)
 		printf("before transformPointCloud.\n");
 		pcl::transformPointCloud(*cloud2, *cloud2_transformed, trans);
 
+
+// 		print_timestamp();
+// 		printf("before keyPointsVis 1.\n");
+// 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1 = simpleVis(cloud1);
+// 		print_timestamp();
+// 		printf("before keyPointsVis 2.\n");
+// 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = simpleVis(cloud2);
 		print_timestamp();
 		printf("before keyPointsVis 1.\n");
 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1 = keyPointsVis(cloud1, sift_keypoints1);
 		print_timestamp();
 		printf("before keyPointsVis 2.\n");
 		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer2 = keyPointsVis(cloud2, sift_keypoints2);
-		print_timestamp();
-		printf("before CorrespondenceVis.\n");
-		//boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
-		//boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
+ 		print_timestamp();
+ 		printf("before CorrespondenceVis.\n");
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer3 = MergeVis(cloud1, cloud2_transformed);
+		boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer4 = CorrespondenceVis(cloud1, cloud2, sift_keypoints1, sift_keypoints2, inlier_correspondences);
 
 #endif
 	  
@@ -367,14 +384,14 @@ pcl::PointCloud<pcl::PointWithScale>::Ptr
 }
 
 // Down Sampling function
-pcl::PointCloud<pcl::PointXYZ>::Ptr
-	do_the_downsampling (pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr
+	do_the_downsampling (pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud)
 {
 	// Create the filtering object
-	pcl::VoxelGrid<pcl::PointXYZ> sor;
-	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>());
+	pcl::VoxelGrid<pcl::PointXYZRGB> sor;
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZRGB>());
 	sor.setInputCloud (cloud);
-	sor.setLeafSize (0.01f, 0.01f, 0.01f);
+	sor.setLeafSize (0.005f, 0.005f, 0.005f);
 	sor.filter (*cloud_filtered);
 
 	std::cerr << "PointCloud after filtering: " << cloud_filtered->width * cloud_filtered->height 
@@ -383,13 +400,13 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr
 }
 
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
+	simpleVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud)
 {
 
 	// Visualization of keypoints along with the original cloud
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
-	viewer->setBackgroundColor( 0.0, 0.0, 0.0 );
+	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_color_handler(cloud);
+	viewer->setBackgroundColor( 0.1, 0.1, 0.1 );
 	viewer->addPointCloud(cloud, cloud_color_handler, "cloud");
 
 	return(viewer);
@@ -405,11 +422,12 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	// Visualization of keypoints along with the original cloud
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints_color_handler (cloud_temp, 0, 255, 0);
+	pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_color_handler(cloud);
 	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
-	viewer->setBackgroundColor( 0.5, 0.5, 0.5 );
-	viewer->addPointCloud(cloud, "cloud");
-	//viewer->addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
-	//viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
+	viewer->setBackgroundColor( 0.1, 0.1, 0.1 );
+	viewer->addPointCloud(cloud, cloud_color_handler, "cloud");
+	viewer->addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
+	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
 
 	return(viewer);
 }

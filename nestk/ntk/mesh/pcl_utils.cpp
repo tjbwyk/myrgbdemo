@@ -100,6 +100,18 @@ void meshToPointCloud(pcl::PointCloud<pcl::PointNormal>& cloud,
     }
 }
 
+void meshToPointCloud(pcl::PointCloud<pcl::PointXYZRGB>& cloud,
+	const ntk::Mesh& mesh)
+{
+	cloud.points.resize(mesh.vertices.size());
+	cloud.height = 1;
+	cloud.width = cloud.points.size();
+	foreach_idx(i, cloud.points)
+	{
+		cloud.points[i] = toPcl(mesh.vertices[i], mesh.colors[i]);
+	}
+}
+
 Eigen::Affine3f toPclCameraTransform(const Pose3D& pose)
 {
     Eigen::Affine3f mat;

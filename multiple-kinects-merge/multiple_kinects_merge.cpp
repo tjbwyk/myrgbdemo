@@ -22,6 +22,7 @@
 #include <ntk/core.h>
 #include <ntk/utils/debug.h>
 #include <ntk/mesh/pcl_utils.h>
+#include <ntk/mesh/mesh_generator.h>
 
 #include <ntk/camera/openni_grabber.h>
 #include <ntk/camera/rgbd_processor.h>
@@ -55,16 +56,16 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr do_the_downsampling (pcl::PointCloud<pcl::Po
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	keyPointsVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints);
+	keyPointsVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	CorrespondenceVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud2,
-	pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints1, pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints2,
+	CorrespondenceVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud2,
+	pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints2,
 	pcl::CorrespondencesPtr correspondences);
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	MergeVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud2);
-pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud);
-pcl::PointCloud<pcl::PointWithScale>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr);
-pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr normals, pcl::PointCloud<pcl::PointWithScale>::Ptr keypoints);
+	MergeVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud2);
+pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud);
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud);
+pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr normals, pcl::PointCloud<pcl::PointXYZRGB>::Ptr keypoints);
 
 void print_timestamp() {
 	time_t t = time(0);   // get time now
@@ -118,6 +119,10 @@ int main(int argc, char** argv)
 	RGBDImage image1, image2;
 	OpenniRGBDProcessor post_processor;
 
+	// Mesh generator
+	MeshGenerator *mesh_generator = new MeshGenerator();
+	mesh_generator->setMeshType(MeshGenerator::PointCloudMesh);
+
 // 	print_timestamp();
 // 	printf("before creating the viewer.\n");
 // 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
@@ -136,6 +141,10 @@ int main(int argc, char** argv)
 
 	if (true)
 	{
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud1(new pcl::PointCloud<pcl::PointXYZRGB>());
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud2(new pcl::PointCloud<pcl::PointXYZRGB>());
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud2_transformed(new pcl::PointCloud<pcl::PointXYZRGB>());
+
 		// Wait for a new frame, get a local copy and postprocess it.
 		grabber1.waitForNextFrame();
 		print_timestamp();
@@ -144,6 +153,9 @@ int main(int argc, char** argv)
 		print_timestamp();
 		printf("before processImage 1.\n");
 		post_processor.processImage(image1);
+		mesh_generator->generate(image1);
+		meshToPointCloud(*cloud1, mesh_generator->mesh());
+
 		print_timestamp();
 		printf("before grab 2.\n");
 		grabber2.waitForNextFrame();
@@ -153,17 +165,16 @@ int main(int argc, char** argv)
 		print_timestamp();
 		printf("before processImage 2.\n");
 		post_processor.processImage(image2);
+		mesh_generator->generate(image2);
+		meshToPointCloud(*cloud2, mesh_generator->mesh());
 	 
 		// Transform the RGBDImage to PCL
-		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud1(new pcl::PointCloud<pcl::PointXYZ>());
-		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud2(new pcl::PointCloud<pcl::PointXYZ>());
-		pcl::PointCloud<pcl::PointXYZ>::Ptr cloud2_transformed(new pcl::PointCloud<pcl::PointXYZ>());
-		print_timestamp();
-		printf("before rgbdImageToPointCloud 1.\n");
-		ntk::rgbdImageToPointCloud(*cloud1, image1);
-		print_timestamp();
-		printf("before rgbdImageToPointCloud 2.\n");
-		ntk::rgbdImageToPointCloud(*cloud2, image2);
+// 		print_timestamp();
+// 		printf("before rgbdImageToPointCloud 1.\n");
+// 		ntk::rgbdImageToPointCloud(*cloud1, image1);
+// 		print_timestamp();
+// 		printf("before rgbdImageToPointCloud 2.\n");
+// 		ntk::rgbdImageToPointCloud(*cloud2, image2);
 
 		// Write the clouds to files
 		print_timestamp();
@@ -206,11 +217,11 @@ int main(int argc, char** argv)
 
 		print_timestamp();
 		printf("before getSiftKeyPoints 1.\n");
-		pcl::PointCloud<pcl::PointWithScale>::Ptr sift_keypoints1 = getSiftKeyPoints(cloud1, normals1);
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr sift_keypoints1 = getSiftKeyPoints(cloud1);
 		printf("No. of keypoints 1: %i\n", sift_keypoints1->size());
 		print_timestamp();
 		printf("before getSiftKeyPoints 2.\n");
-		pcl::PointCloud<pcl::PointWithScale>::Ptr sift_keypoints2 = getSiftKeyPoints(cloud2, normals2);
+		pcl::PointCloud<pcl::PointXYZRGB>::Ptr sift_keypoints2 = getSiftKeyPoints(cloud2);
 		printf("No. of keypoints 2: %i\n", sift_keypoints2->size());
 
 		print_timestamp();
@@ -236,7 +247,7 @@ int main(int argc, char** argv)
 // 			cout << (*all_correspondences)[i].index_query << " " << (*all_correspondences)[i].index_match << " " << (*all_correspondences)[i].distance << endl;
 // 		}
 
-		pcl::registration::CorrespondenceRejectorSampleConsensus<pcl::PointWithScale> crsac;
+		pcl::registration::CorrespondenceRejectorSampleConsensus<pcl::PointXYZRGB> crsac;
 		crsac.setInputCloud(sift_keypoints2);
 		crsac.setTargetCloud(sift_keypoints1);
 		crsac.setMaxIterations(1000);
@@ -382,7 +393,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 
 // PCL Visualizer
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	keyPointsVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints)
+	keyPointsVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints)
 {
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_temp(new pcl::PointCloud<pcl::PointXYZ>);
 	copyPointCloud(*keyPoints, *cloud_temp);
@@ -390,9 +401,9 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	// Visualization of keypoints along with the original cloud
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints_color_handler (cloud_temp, 0, 255, 0);
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
+	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler (cloud, 255, 255, 255);
 	viewer->setBackgroundColor( 0.0, 0.0, 0.0 );
-	viewer->addPointCloud(cloud, cloud_color_handler, "cloud");
+	viewer->addPointCloud(cloud, "cloud");
 	viewer->addPointCloud(cloud_temp, keypoints_color_handler, "keypoints");
 	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints");
 
@@ -400,8 +411,8 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 }
 
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	CorrespondenceVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud2,
-	pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints1, pcl::PointCloud<pcl::PointWithScale>::ConstPtr keyPoints2,
+	CorrespondenceVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud2,
+	pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr keyPoints2,
 	pcl::CorrespondencesPtr correspondences)
 {
 	pcl::PointCloud<pcl::PointXYZ>::Ptr keyPoints_xyz1(new pcl::PointCloud<pcl::PointXYZ>),
@@ -410,22 +421,22 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 	copyPointCloud(*keyPoints2, *keyPoints_xyz2);
 
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Reg Viewer"));
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 0, 0);
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
+	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 0, 0);
+	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints1_color_handler(keyPoints_xyz1, 255, 255, 0);
 	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> keypoints2_color_handler(keyPoints_xyz2, 0, 0, 255);
 
 	viewer->setBackgroundColor(0, 0, 0);
-  	viewer->addPointCloud(cloud1, cloud1_color_handler, "cloud1");
-  	viewer->addPointCloud(cloud2, cloud2_color_handler, "cloud2");
+  	viewer->addPointCloud(cloud1, "cloud1");
+  	viewer->addPointCloud(cloud2, "cloud2");
 //   	viewer->addPointCloud(keyPoints_xyz1, keypoints1_color_handler, "keypoints1");
 //   	viewer->addPointCloud(keyPoints_xyz2, keypoints2_color_handler, "keypoints2");
 //   	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints1");
 //   	viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 7, "keypoints2");
 	
 	for (size_t i = 0; i < correspondences->size(); i++) {
-		const pcl::PointWithScale &p_src = keyPoints2->points[(*correspondences)[i].index_query];
-		const pcl::PointWithScale &p_tgt = keyPoints1->points[(*correspondences)[i].index_match];
+		const pcl::PointXYZRGB &p_src = keyPoints2->points[(*correspondences)[i].index_query];
+		const pcl::PointXYZRGB &p_tgt = keyPoints1->points[(*correspondences)[i].index_match];
 		std::stringstream ss("line");
 		ss << i;
 		viewer->addLine(p_src, p_tgt, 1, 1, 1, ss.str());
@@ -435,28 +446,28 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer>
 }
 
 boost::shared_ptr<pcl::visualization::PCLVisualizer>
-	MergeVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud2)
+	MergeVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud1, pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud2)
 {
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Merge Viewer"));
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 0, 0);
-	pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
+	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 0, 0);
+	//pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
 
 	viewer->setBackgroundColor(0, 0, 0);
- 	viewer->addPointCloud(cloud1, cloud1_color_handler, "cloud1");
- 	viewer->addPointCloud(cloud2, cloud2_color_handler, "cloud2");
+ 	viewer->addPointCloud(cloud1, "cloud1");
+ 	viewer->addPointCloud(cloud2, "cloud2");
 
 	return viewer;
 }
 
-pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
+pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud)
 {
 	// Create the normal estimation class, and pass the input dataset to it
-	pcl::NormalEstimation<pcl::PointXYZ, pcl::Normal> ne;
+	pcl::NormalEstimation<pcl::PointXYZRGB, pcl::Normal> ne;
 	ne.setInputCloud (cloud);
 
 	// Create an empty kdtree representation, and pass it to the normal estimation object.
 	// Its content will be filled inside the object, based on the given input dataset (as no other search surface is given).
-	pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ> ());
+	pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB> ());
 	ne.setSearchMethod (tree);
 
 	// Output datasets
@@ -471,7 +482,7 @@ pcl::PointCloud<pcl::Normal>::Ptr getSurfaceNormals(pcl::PointCloud<pcl::PointXY
 	return cloud_normals;
 }
 
-pcl::PointCloud<pcl::PointWithScale>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr normals)
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud)
 {
 	// Parameters for sift computation
 	const float min_scale = 0.008f;
@@ -479,35 +490,31 @@ pcl::PointCloud<pcl::PointWithScale>::Ptr getSiftKeyPoints(pcl::PointCloud<pcl::
 	const int n_scales_per_octave = 8;
 	const float min_contrast = 0.0f;
 
-	// Concatenate the XYZ and Normal
-	pcl::PointCloud<pcl::PointNormal>::Ptr cloud_normals(new pcl::PointCloud<pcl::PointNormal>());
-	concatenateFields(*cloud, *normals, *cloud_normals);
-
 	// Estimate the sift interest points using normals values from xyz as the Intensity variants
-	pcl::SIFTKeypoint<pcl::PointNormal, pcl::PointWithScale> sift;
-	pcl::PointCloud<pcl::PointWithScale>::Ptr result(new pcl::PointCloud<pcl::PointWithScale>());
-	pcl::search::KdTree<pcl::PointNormal>::Ptr tree(new pcl::search::KdTree<pcl::PointNormal>());
+	pcl::SIFTKeypoint<pcl::PointXYZRGB, pcl::PointXYZRGB> sift;
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr result(new pcl::PointCloud<pcl::PointXYZRGB>());
+	pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());
 	sift.setSearchMethod(tree);
 	sift.setScales(min_scale, n_octaves, n_scales_per_octave);
 	sift.setMinimumContrast(min_contrast);
-	sift.setInputCloud(cloud_normals);
+	sift.setInputCloud(cloud);
 	sift.compute(*result);
 
 	return result;
 }
 
-pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr normals, pcl::PointCloud<pcl::PointWithScale>::Ptr keypoints)
+pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud, pcl::PointCloud<pcl::Normal>::Ptr normals, pcl::PointCloud<pcl::PointXYZRGB>::Ptr keypoints)
 {
 	// Create a PFHEstimation object
-	pcl::FPFHEstimation<pcl::PointXYZ, pcl::Normal, pcl::FPFHSignature33> fpfh;
+	pcl::FPFHEstimation<pcl::PointXYZRGB, pcl::Normal, pcl::FPFHSignature33> fpfh;
 
 	// Convert the keypoints cloud from PointWithScale to PointXYZ
 	// so that it will be compatible with our original point cloud
 	printf("before copyPointCloud\n");
-	pcl::PointCloud<pcl::PointXYZ>::Ptr keypoints_xyz(new pcl::PointCloud<pcl::PointXYZ>());
-	copyPointCloud(*keypoints, *keypoints_xyz);
-	printf("Number of keypoints: %i\n", keypoints->size());
-	printf("Number of keypoints_xyz: %i\n", keypoints_xyz->size());
+// 	pcl::PointCloud<pcl::PointXYZ>::Ptr keypoints_xyz(new pcl::PointCloud<pcl::PointXYZ>());
+// 	copyPointCloud(*keypoints, *keypoints_xyz);
+// 	printf("Number of keypoints: %i\n", keypoints->size());
+// 	printf("Number of keypoints_xyz: %i\n", keypoints_xyz->size());
 
 	// Use all of the points for analyzing the local structure of the cloud
 	printf("before set surface and normals\n");
@@ -518,10 +525,10 @@ pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZ
 
 	// Only compute features at the keypoints
 	// 	printf("before set keypoints.\n");
-	fpfh.setInputCloud(keypoints_xyz);
+	fpfh.setInputCloud(keypoints);
 
 	// Set it to use a KdTree to perform its neighborhood searches
-	pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>());
+	pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());
 	printf("before set KdTree\n");
 	fpfh.setSearchMethod(tree);
 

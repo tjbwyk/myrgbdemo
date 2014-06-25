@@ -44,6 +44,7 @@
 #include <pcl/registration/correspondence_rejection_sample_consensus.h>
 #include <pcl/surface/gp3.h>
 #include <pcl/registration/transformation_estimation_svd.h>
+#include <pcl/surface/poisson.h>
 
 #include <QMessageBox>
 #include <QApplication>
@@ -631,21 +632,23 @@ pcl::PolygonMesh::Ptr applyMeshing(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud)
 	n.compute(*normals);
 	//* normals should not contain the point normals + surface curvatures
 
-	// Concatenate the XYZ and normal fields*
+	// Concatenate the XYZRGB and normal fields*
 	pcl::PointCloud<pcl::PointXYZRGBNormal>::Ptr cloud_with_normals (new pcl::PointCloud<pcl::PointXYZRGBNormal>);
 	pcl::concatenateFields(*cloud, *normals, *cloud_with_normals);
 	//* cloud_with_normals = cloud + normals
 
+	pcl::PolygonMesh::Ptr triangles = pcl::PolygonMesh::Ptr(new pcl::PolygonMesh());
+
+#if 1
 	// Create search tree*
 	pcl::search::KdTree<pcl::PointXYZRGBNormal>::Ptr tree2 (new pcl::search::KdTree<pcl::PointXYZRGBNormal>);
 	tree2->setInputCloud(cloud_with_normals);
 
 	// Initialize objects
 	pcl::GreedyProjectionTriangulation<pcl::PointXYZRGBNormal> gp3;
-	pcl::PolygonMesh::Ptr triangles = pcl::PolygonMesh::Ptr(new pcl::PolygonMesh());
 
 	// Set the maximum distance between connected points (maximum edge length)
-	gp3.setSearchRadius(0.025);
+	gp3.setSearchRadius(0.05);
 
 	// Set typical values for the parameters
 	gp3.setMu(2.5);
@@ -663,6 +666,11 @@ pcl::PolygonMesh::Ptr applyMeshing(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud)
 	// Additional vertex information
 	std::vector<int> parts = gp3.getPartIDs();
 	std::vector<int> states = gp3.getPointStates();
+#else
+	pcl::Poisson<pcl::PointXYZRGBNormal> poisson;
+	poisson.setInputCloud(cloud_with_normals);
+	poisson.performReconstruction(*triangles);
 
+#endif
 	return triangles;
 }

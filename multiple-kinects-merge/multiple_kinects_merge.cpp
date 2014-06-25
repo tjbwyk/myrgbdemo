@@ -42,6 +42,8 @@
 #include <pcl/registration/transformation_estimation.h>
 #include <pcl/registration/correspondence_estimation.h>
 #include <pcl/registration/correspondence_rejection_sample_consensus.h>
+#include <pcl/surface/gp3.h>
+#include <pcl/registration/transformation_estimation_svd.h>
 
 #include <QMessageBox>
 #include <QApplication>
@@ -49,7 +51,6 @@
 using namespace ntk;
 #include <ctime>
 #include <iostream>
-#include "pcl/registration/transformation_estimation_svd.h"
 
 using namespace std;
 
@@ -74,6 +75,7 @@ void pointSelector_callback(const pcl::visualization::PointPickingEvent& event, 
 void getTransformations();
 void applyICP();
 void getVisualization();
+pcl::PolygonMesh::Ptr applyMeshing(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud);
 
 vector<OpenniGrabber*> grabbers;
 vector<RGBDImage> images;
@@ -211,6 +213,20 @@ void manual_calib(int argc, char** argv)
 	applyICP();
 
 	getVisualization();
+
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_merged = pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>());
+	for (int i = 0; i < num_devices; i++) {
+		*cloud_merged += *clouds_final[i];
+	}
+
+	pcl::PolygonMeshPtr triangles_merged = applyMeshing(cloud_merged);
+
+	pcl::visualization::PCLVisualizer *mesh_viewer = new pcl::visualization::PCLVisualizer("Mesh Viewer");
+	mesh_viewer->addPolygonMesh(*triangles_merged);
+
+	while (!mesh_viewer->wasStopped()) {
+		mesh_viewer->spinOnce();
+	}
 // 	if (true)
 // 	{
 // 	 
@@ -601,4 +617,52 @@ void getVisualization() {
 	while (!viewer->wasStopped()) {
 		viewer->spinOnce();
 	}
+}
+
+pcl::PolygonMesh::Ptr applyMeshing(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
+	// Normal estimation*
+	pcl::NormalEstimation<pcl::PointXYZRGB, pcl::Normal> n;
+	pcl::PointCloud<pcl::Normal>::Ptr normals (new pcl::PointCloud<pcl::Normal>);
+	pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
+	tree->setInputCloud(cloud);
+	n.setInputCloud(cloud);
+	n.setSearchMethod(tree);
+	n.setKSearch(20);
+	n.compute(*normals);
+	//* normals should not contain the point normals + surface curvatures
+
+	// Concatenate the XYZ and normal fields*
+	pcl::PointCloud<pcl::PointXYZRGBNormal>::Ptr cloud_with_normals (new pcl::PointCloud<pcl::PointXYZRGBNormal>);
+	pcl::concatenateFields(*cloud, *normals, *cloud_with_normals);
+	//* cloud_with_normals = cloud + normals
+
+	// Create search tree*
+	pcl::search::KdTree<pcl::PointXYZRGBNormal>::Ptr tree2 (new pcl::search::KdTree<pcl::PointXYZRGBNormal>);
+	tree2->setInputCloud(cloud_with_normals);
+
+	// Initialize objects
+	pcl::GreedyProjectionTriangulation<pcl::PointXYZRGBNormal> gp3;
+	pcl::PolygonMesh::Ptr triangles = pcl::PolygonMesh::Ptr(new pcl::PolygonMesh());
+
+	// Set the maximum distance between connected points (maximum edge length)
+	gp3.setSearchRadius(0.025);
+
+	// Set typical values for the parameters
+	gp3.setMu(2.5);
+	gp3.setMaximumNearestNeighbors(100);
+	gp3.setMaximumSurfaceAngle(M_PI/4); // 45 degrees
+	gp3.setMinimumAngle(M_PI/18); // 10 degrees
+	gp3.setMaximumAngle(2*M_PI/3); // 120 degrees
+	gp3.setNormalConsistency(false);
+
+	// Get result
+	gp3.setInputCloud(cloud_with_normals);
+	gp3.setSearchMethod(tree2);
+	gp3.reconstruct(*triangles);
+
+	// Additional vertex information
+	std::vector<int> parts = gp3.getPartIDs();
+	std::vector<int> states = gp3.getPointStates();
+
+	return triangles;
 }

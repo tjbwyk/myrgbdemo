@@ -72,13 +72,16 @@ pcl::PointCloud<pcl::FPFHSignature33>::Ptr getFPFH(pcl::PointCloud<pcl::PointXYZ
 void manual_calib(int argc, char** argv);
 void pointSelector_callback(const pcl::visualization::PointPickingEvent& event, void* cloud_sel_ptr);
 void getTransformations();
+void applyICP();
 void getVisualization();
 
 vector<OpenniGrabber*> grabbers;
 vector<RGBDImage> images;
 vector<pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds;
-vector<pcl::visualization::PCLVisualizer*> viewers;
+vector<pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds_trans;
+vector<pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds_final;
 vector<pcl::PointCloud<pcl::PointXYZ>::Ptr> clouds_sel;
+vector<pcl::visualization::PCLVisualizer*> viewers;
 Eigen::Matrix4f transformation_matrics[100];
 int num_devices;
 bool selection_finish = false;
@@ -204,6 +207,8 @@ void manual_calib(int argc, char** argv)
 	}
 
 	getTransformations();
+
+	applyICP();
 
 	getVisualization();
 // 	if (true)
@@ -551,11 +556,36 @@ void getTransformations() {
 		indeces.push_back(i);
 	}
 
+	clouds_trans.push_back(pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>()));
+	pcl::copyPointCloud<pcl::PointXYZRGB, pcl::PointXYZRGB>(*clouds[0], *clouds_trans[0]);
+
 	pcl::registration::TransformationEstimationSVD<pcl::PointXYZ, pcl::PointXYZ> svd;
 	Eigen::Matrix4f transformation;
 	for (int i = 1; i < num_devices; i++) {
 		svd.estimateRigidTransformation(*clouds_sel[i], indeces, *clouds_sel[0], indeces, transformation);
 		transformation_matrics[i - 1] = transformation;
+		clouds_trans.push_back(pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>()));
+		pcl::transformPointCloud(*clouds[i], *clouds_trans[i], transformation_matrics[i - 1]);
+	}
+}
+
+void applyICP() {
+	clouds_final.push_back(pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>()));
+	pcl::copyPointCloud<pcl::PointXYZRGB, pcl::PointXYZRGB>(*clouds[0], *clouds_final[0]);
+
+	pcl::IterativeClosestPoint<pcl::PointXYZRGB, pcl::PointXYZRGB> icp;
+	icp.setInputTarget(clouds[0]);
+	icp.setMaxCorrespondenceDistance(0.05);
+	icp.setMaximumIterations(50);
+	icp.setTransformationEpsilon(1e-8);
+	icp.setEuclideanFitnessEpsilon(1);
+	for (int i = 1; i < num_devices; i++) {
+		icp.setInputCloud(clouds_trans[i]);
+		clouds_final.push_back(pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>()));
+		icp.align(*clouds_final[i]);
+		std::cout << "has converged:" << icp.hasConverged() << " score: " <<
+			icp.getFitnessScore() << std::endl;
+		std::cout << icp.getFinalTransformation() << std::endl;
 	}
 }
 
@@ -565,10 +595,8 @@ void getVisualization() {
 	viewer->addPointCloud(clouds[0], cloud_color_handler, "cloud_0");
 	for (int i = 1; i < num_devices; i++) {
 		string cloud_id = string("cloud_") + char(i + '0');
-		pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_transformed(new pcl::PointCloud<pcl::PointXYZRGB>);
-		pcl::transformPointCloud(*clouds[i], *cloud_transformed, transformation_matrics[i - 1]);
-		pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_transformed_color_handler(cloud_transformed);
-		viewer->addPointCloud(cloud_transformed, cloud_transformed_color_handler, cloud_id.c_str());
+		pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> cloud_transformed_color_handler(clouds_final[i]);
+		viewer->addPointCloud(clouds_final[i], cloud_transformed_color_handler, cloud_id.c_str());
 	}
 	while (!viewer->wasStopped()) {
 		viewer->spinOnce();

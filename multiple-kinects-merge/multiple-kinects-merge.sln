@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multiple-kinects-merge", "multiple-kinects-merge.vcxproj", "{9929A238-4D77-41FA-AF73-750BB12BB19E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multi_threading_vis", "..\..\UvA\Profile_Project_AI_IS\multi_threading_vis\multi_threading_samples\multi_threading_samples.vcxproj", "{E6BDDC25-3078-41FE-B964-2A5F15A2F53A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{9929A238-4D77-41FA-AF73-750BB12BB19E}.Debug|Win32.Build.0 = Debug|Win32
 		{9929A238-4D77-41FA-AF73-750BB12BB19E}.Release|Win32.ActiveCfg = Release|Win32
 		{9929A238-4D77-41FA-AF73-750BB12BB19E}.Release|Win32.Build.0 = Release|Win32
+		{E6BDDC25-3078-41FE-B964-2A5F15A2F53A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E6BDDC25-3078-41FE-B964-2A5F15A2F53A}.Debug|Win32.Build.0 = Debug|Win32
+		{E6BDDC25-3078-41FE-B964-2A5F15A2F53A}.Release|Win32.ActiveCfg = Release|Win32
+		{E6BDDC25-3078-41FE-B964-2A5F15A2F53A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
